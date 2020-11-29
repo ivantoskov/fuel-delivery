@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="fuel_delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="H90-nc-jzE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EM0-BD-4G6" customClass="RoundedView" customModule="fuel_delivery" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCz-4i-zdS" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="98" width="398" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="KSm-E3-Su5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <state key="normal" title="ORDER">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IyO-Nu-X7u">
+                                        <rect key="frame" x="8" y="37" width="398" height="32"/>
+                                        <segments>
+                                            <segment title="Petrol"/>
+                                            <segment title="Diesel"/>
+                                            <segment title="Engine oil"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QCz-4i-zdS" secondAttribute="trailing" constant="8" id="46v-0N-srB"/>
+                                    <constraint firstAttribute="height" constant="200" id="Iti-3j-vW9"/>
+                                    <constraint firstItem="IyO-Nu-X7u" firstAttribute="leading" secondItem="EM0-BD-4G6" secondAttribute="leading" constant="8" id="QP8-H8-k6k"/>
+                                    <constraint firstItem="QCz-4i-zdS" firstAttribute="top" secondItem="IyO-Nu-X7u" secondAttribute="bottom" constant="30" id="kdG-Oz-tHe"/>
+                                    <constraint firstAttribute="bottom" secondItem="QCz-4i-zdS" secondAttribute="bottom" constant="42" id="ohg-xH-hmy"/>
+                                    <constraint firstAttribute="trailing" secondItem="IyO-Nu-X7u" secondAttribute="trailing" constant="8" id="qPx-Js-5TQ"/>
+                                    <constraint firstItem="QCz-4i-zdS" firstAttribute="leading" secondItem="EM0-BD-4G6" secondAttribute="leading" constant="8" id="tPs-li-LLV"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="Noh-Pl-bEG" customClass="CircleImage" customModule="fuel_delivery" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8gR-fR-z1B"/>
+                                    <constraint firstAttribute="height" constant="50" id="WKn-Wa-kEK"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bw-Mk0" customClass="RoundedView" customModule="fuel_delivery" customModuleProvider="target">
+                                <rect key="frame" x="20" y="154" width="374" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfh-d0-ckO">
+                                        <rect key="frame" x="8" y="8" width="358" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2D Chapel Road, Tiptree, Colchester, Essex, United Kingdom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRS-aV-NND">
+                                        <rect key="frame" x="8" y="40" width="358" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="xfh-d0-ckO" firstAttribute="leading" secondItem="JX2-bw-Mk0" secondAttribute="leading" constant="8" id="FI9-TQ-eww"/>
+                                    <constraint firstItem="xfh-d0-ckO" firstAttribute="top" secondItem="JX2-bw-Mk0" secondAttribute="top" constant="8" id="Xbr-dA-4yA"/>
+                                    <constraint firstAttribute="height" constant="70" id="fgE-6N-Ahm"/>
+                                    <constraint firstAttribute="trailing" secondItem="xfh-d0-ckO" secondAttribute="trailing" constant="8" id="omo-x1-itV"/>
+                                    <constraint firstItem="kRS-aV-NND" firstAttribute="leading" secondItem="JX2-bw-Mk0" secondAttribute="leading" constant="8" id="qdm-1M-Y6w"/>
+                                    <constraint firstAttribute="bottom" secondItem="kRS-aV-NND" secondAttribute="bottom" constant="8" id="w5a-3U-3zA"/>
+                                    <constraint firstAttribute="trailing" secondItem="kRS-aV-NND" secondAttribute="trailing" constant="8" id="waI-3A-8hu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EM0-BD-4G6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2hL-bh-mgF"/>
+                            <constraint firstAttribute="bottom" secondItem="EM0-BD-4G6" secondAttribute="bottom" id="3gp-Ox-5cl"/>
+                            <constraint firstItem="JX2-bw-Mk0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4xn-RW-nAp"/>
+                            <constraint firstItem="H90-nc-jzE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="C4E-4X-nPw"/>
+                            <constraint firstItem="Noh-Pl-bEG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E8g-3L-Vnq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JX2-bw-Mk0" secondAttribute="trailing" constant="20" id="HwU-k9-Mou"/>
+                            <constraint firstItem="JX2-bw-Mk0" firstAttribute="top" secondItem="Noh-Pl-bEG" secondAttribute="bottom" constant="60" id="OGP-lb-4g3"/>
+                            <constraint firstItem="EM0-BD-4G6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Th6-jY-e7A"/>
+                            <constraint firstItem="H90-nc-jzE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tkd-92-YAh"/>
+                            <constraint firstItem="Noh-Pl-bEG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TqX-d9-EiK"/>
+                            <constraint firstItem="H90-nc-jzE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j9G-7h-qZd"/>
+                            <constraint firstAttribute="bottom" secondItem="H90-nc-jzE" secondAttribute="bottom" id="qU8-YM-tR5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="kRS-aV-NND" id="gL1-3n-Hqh"/>
+                        <outlet property="mapView" destination="H90-nc-jzE" id="1hO-ea-MMU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="88.392857142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qGb-9e-9LX">
+            <objects>
+                <viewController id="9Yt-Md-Jgx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ycp-g5-X8A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Df5-hR-od3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbi-8s-V86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="88"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="call" width="750" height="1334"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

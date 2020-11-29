@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		790720962573C6B2007626D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720952573C6B2007626D3 /* AppDelegate.swift */; };
+		790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720972573C6B2007626D3 /* SceneDelegate.swift */; };
+		7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720992573C6B2007626D3 /* MainViewController.swift */; };
+		7907209D2573C6B2007626D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7907209B2573C6B2007626D3 /* Main.storyboard */; };
+		7907209F2573C6B5007626D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7907209E2573C6B5007626D3 /* Assets.xcassets */; };
+		790720A22573C6B5007626D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790720A02573C6B5007626D3 /* LaunchScreen.storyboard */; };
+		790720AB2573CCE0007626D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790720AA2573CCE0007626D3 /* GoogleService-Info.plist */; };
+		790720C82573D973007626D3 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720C72573D973007626D3 /* RoundedView.swift */; };
+		790720CC2573DB46007626D3 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720CB2573DB46007626D3 /* RoundedButton.swift */; };
+		790720CF2573DBD9007626D3 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720CE2573DBD9007626D3 /* CircleImage.swift */; };
+		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4FB56270E047D96EC9473CA9 /* Pods-fuel-delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.release.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.release.xcconfig"; sourceTree = "<group>"; };
+		790720922573C6B2007626D3 /* fuel-delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fuel-delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		790720952573C6B2007626D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		790720972573C6B2007626D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		790720992573C6B2007626D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7907209C2573C6B2007626D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7907209E2573C6B5007626D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		790720A12573C6B5007626D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		790720A32573C6B5007626D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		790720AA2573CCE0007626D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		790720C72573D973007626D3 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		790720CB2573DB46007626D3 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		790720CE2573DBD9007626D3 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
+		F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fuel_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7907208F2573C6B2007626D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		790720892573C6B2007626D3 = {
+			isa = PBXGroup;
+			children = (
+				790720942573C6B2007626D3 /* fuel-delivery */,
+				790720932573C6B2007626D3 /* Products */,
+				D119FFA4647992404A0EA873 /* Pods */,
+				C0D2B2D456ECC1C44F9CE906 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		790720932573C6B2007626D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				790720922573C6B2007626D3 /* fuel-delivery.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		790720942573C6B2007626D3 /* fuel-delivery */ = {
+			isa = PBXGroup;
+			children = (
+				790720C62573D955007626D3 /* Model */,
+				790720C52573D951007626D3 /* View */,
+				790720C42573D94B007626D3 /* Controller */,
+				790720952573C6B2007626D3 /* AppDelegate.swift */,
+				790720972573C6B2007626D3 /* SceneDelegate.swift */,
+				7907209B2573C6B2007626D3 /* Main.storyboard */,
+				7907209E2573C6B5007626D3 /* Assets.xcassets */,
+				790720A02573C6B5007626D3 /* LaunchScreen.storyboard */,
+				790720A32573C6B5007626D3 /* Info.plist */,
+				790720AA2573CCE0007626D3 /* GoogleService-Info.plist */,
+			);
+			path = "fuel-delivery";
+			sourceTree = "<group>";
+		};
+		790720C42573D94B007626D3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				790720992573C6B2007626D3 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		790720C52573D951007626D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				790720C72573D973007626D3 /* RoundedView.swift */,
+				790720CB2573DB46007626D3 /* RoundedButton.swift */,
+				790720CE2573DBD9007626D3 /* CircleImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		790720C62573D955007626D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0D2B2D456ECC1C44F9CE906 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D119FFA4647992404A0EA873 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */,
+				4FB56270E047D96EC9473CA9 /* Pods-fuel-delivery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		790720912573C6B2007626D3 /* fuel-delivery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 790720A62573C6B5007626D3 /* Build configuration list for PBXNativeTarget "fuel-delivery" */;
+			buildPhases = (
+				BB6440065F1FEA7C65AC171D /* [CP] Check Pods Manifest.lock */,
+				7907208E2573C6B2007626D3 /* Sources */,
+				7907208F2573C6B2007626D3 /* Frameworks */,
+				790720902573C6B2007626D3 /* Resources */,
+				EFAA66582F2232BC65F3A1F2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "fuel-delivery";
+			productName = "fuel-delivery";
+			productReference = 790720922573C6B2007626D3 /* fuel-delivery.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7907208A2573C6B2007626D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					790720912573C6B2007626D3 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 7907208D2573C6B2007626D3 /* Build configuration list for PBXProject "fuel-delivery" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 790720892573C6B2007626D3;
+			productRefGroup = 790720932573C6B2007626D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				790720912573C6B2007626D3 /* fuel-delivery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		790720902573C6B2007626D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				790720A22573C6B5007626D3 /* LaunchScreen.storyboard in Resources */,
+				790720AB2573CCE0007626D3 /* GoogleService-Info.plist in Resources */,
+				7907209F2573C6B5007626D3 /* Assets.xcassets in Resources */,
+				7907209D2573C6B2007626D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BB6440065F1FEA7C65AC171D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fuel-delivery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFAA66582F2232BC65F3A1F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7907208E2573C6B2007626D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
+				790720CC2573DB46007626D3 /* RoundedButton.swift in Sources */,
+				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,
+				790720962573C6B2007626D3 /* AppDelegate.swift in Sources */,
+				790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */,
+				790720CF2573DBD9007626D3 /* CircleImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7907209B2573C6B2007626D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7907209C2573C6B2007626D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		790720A02573C6B5007626D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				790720A12573C6B5007626D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		790720A42573C6B5007626D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		790720A52573C6B5007626D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		790720A72573C6B5007626D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ3LNL3672;
+				INFOPLIST_FILE = "fuel-delivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "toskov.fuel-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		790720A82573C6B5007626D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FB56270E047D96EC9473CA9 /* Pods-fuel-delivery.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ3LNL3672;
+				INFOPLIST_FILE = "fuel-delivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "toskov.fuel-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7907208D2573C6B2007626D3 /* Build configuration list for PBXProject "fuel-delivery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				790720A42573C6B5007626D3 /* Debug */,
+				790720A52573C6B5007626D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		790720A62573C6B5007626D3 /* Build configuration list for PBXNativeTarget "fuel-delivery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				790720A72573C6B5007626D3 /* Debug */,
+				790720A82573C6B5007626D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7907208A2573C6B2007626D3 /* Project object */;
+}
