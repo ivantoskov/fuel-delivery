@@ -9,5 +9,8 @@ target 'fuel-delivery' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  
+  pod 'FirebaseUI'
+  pod 'FirebaseUI/Google'
 
 end
