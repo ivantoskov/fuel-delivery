@@ -13,13 +13,11 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
 
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var locationLabel: UILabel!
-    @IBOutlet weak var fuelSegment: UISegmentedControl!
     
     var locationManager: CLLocationManager!
     var userLocation: CLLocation!
     private var handle: AuthStateDidChangeListenerHandle?
     
-    private var selectedFuel = FuelType.petrol.rawValue
     private var userLat = 0.0
     private var userLon = 0.0
     
@@ -38,8 +36,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func checkIfSignedIn() {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if Auth.auth().currentUser == nil {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let signInVC = storyboard.instantiateViewController(withIdentifier: "signInVC")
+                let storyboard = UIStoryboard(name: MAIN, bundle: nil)
+                let signInVC = storyboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
                 signInVC.modalPresentationStyle = .fullScreen
                 self.present(signInVC, animated: true, completion: nil)
             } else {
@@ -91,37 +89,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         userLon = userLocation.coordinate.longitude
     }
     
-    @IBAction func fuelChanged(_ sender: Any) {
-        switch fuelSegment.selectedSegmentIndex {
-        case 0:
-            selectedFuel = FuelType.petrol.rawValue
-        case 1:
-            selectedFuel = FuelType.diesel.rawValue
-        case 2:
-            selectedFuel = FuelType.engineOil.rawValue
-        default:
-            selectedFuel = FuelType.petrol.rawValue
-        }
-    }
-    
-    @IBAction func orderPressed(_ sender: Any) {
-       /* Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
-            FUEL_TYPE : selectedFuel,
-            TIMESTAMP : FieldValue.serverTimestamp(),
-            DISPLAY_NAME : Auth.auth().currentUser?.displayName ?? "",
-            USER_ID : Auth.auth().currentUser?.uid ?? "",
-            LATITUDE : userLat,
-            LONGITUDE: userLon,
-            ADDRESS: locationLabel.text!
-        ]) { (err) in
-            if let err = err {
-                debugPrint("Error adding document: \(err.localizedDescription)")
-            } else {
-                self.navigationController?.popViewController(animated: true)
-            }
-        } */
-    }
-    
     @IBAction func profilePressed(_ sender: Any) {
         // For now it will just sign out the user
         let firebaseAuth = Auth.auth()
@@ -132,5 +99,13 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_ORDER {
+            if let orderViewController = segue.destination as? OrderViewController {
+                orderViewController.userLat = self.userLat
+                orderViewController.userLon = self.userLon
+                orderViewController.userAddress = self.locationLabel.text!
+            }
+        }
+    }
 }

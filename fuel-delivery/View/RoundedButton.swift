@@ -16,7 +16,6 @@ import UIKit
         self.layer.cornerRadius = cornerRadius
         self.layer.masksToBounds = true
         self.titleLabel?.textColor = textColor
-
     }
     
 }
