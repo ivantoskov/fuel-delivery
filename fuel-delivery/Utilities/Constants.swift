@@ -27,7 +27,13 @@ let TOTAL_PRICE = "totalPrice"
 
 /* Segue identifiers */
 let TO_ORDER = "toOrder"
+let TO_NEARBY_ORDERS = "toNearbyOrders"
+let TO_PUBLISHED_ORDER = "toPublishedOrder"
 
 /* Storyboard identifiers */
 let MAIN = "Main"
 let SIGN_IN_VC = "signInVC"
+let NEARBY_ORDERS_VC = "nearbyOrdersVC"
+let PUBLISHED_ORDER_VC = "publishedOrderVC"
+
+let ORDER_CELL = "orderCell"

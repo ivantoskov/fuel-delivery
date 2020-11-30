@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
             Firestore.firestore().collection(USERS_REF).document(userId).setData([
                 FIRST_NAME: firstName,
                 LAST_NAME: lastName,
-                DATE_CREATED: FieldValue.serverTimestamp()
+                DATE_ORDERED: FieldValue.serverTimestamp()
                 ], completion: { (error) in
                     if let error = error {
                         debugPrint(error.localizedDescription)

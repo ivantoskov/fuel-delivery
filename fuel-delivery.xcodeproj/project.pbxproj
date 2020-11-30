@@ -26,6 +26,10 @@
 		795F0AF82574F8B600065B8B /* PetrolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF72574F8B600065B8B /* PetrolType.swift */; };
 		795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AFA2574F8C200065B8B /* DieselType.swift */; };
 		795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AFD2574F8D400065B8B /* EngineOilType.swift */; };
+		795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0025752CDA00065B8B /* NearbyOrdersViewController.swift */; };
+		795F0B0425752D9800065B8B /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0325752D9800065B8B /* OrderCell.swift */; };
+		795F0B0725755B3000065B8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0625755B3000065B8B /* CircleView.swift */; };
+		795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */; };
 		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		795F0AF72574F8B600065B8B /* PetrolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolType.swift; sourceTree = "<group>"; };
 		795F0AFA2574F8C200065B8B /* DieselType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieselType.swift; sourceTree = "<group>"; };
 		795F0AFD2574F8D400065B8B /* EngineOilType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineOilType.swift; sourceTree = "<group>"; };
+		795F0B0025752CDA00065B8B /* NearbyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyOrdersViewController.swift; sourceTree = "<group>"; };
+		795F0B0325752D9800065B8B /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		795F0B0625755B3000065B8B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedOrderViewController.swift; sourceTree = "<group>"; };
 		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fuel_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,6 +120,8 @@
 				795F0AF32574F12900065B8B /* OrderViewController.swift */,
 				790720FA2574271C007626D3 /* LoginViewController.swift */,
 				790720FD2574288C007626D3 /* RegisterViewController.swift */,
+				795F0B0025752CDA00065B8B /* NearbyOrdersViewController.swift */,
+				795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,6 +132,8 @@
 				790720C72573D973007626D3 /* RoundedView.swift */,
 				790720CB2573DB46007626D3 /* RoundedButton.swift */,
 				790720CE2573DBD9007626D3 /* CircleImage.swift */,
+				795F0B0325752D9800065B8B /* OrderCell.swift */,
+				795F0B0625755B3000065B8B /* CircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,15 +315,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795F0B0725755B3000065B8B /* CircleView.swift in Sources */,
 				795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */,
 				790720FB2574271C007626D3 /* LoginViewController.swift in Sources */,
 				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
 				7907210525743C8F007626D3 /* Order.swift in Sources */,
+				795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */,
+				795F0B0425752D9800065B8B /* OrderCell.swift in Sources */,
 				795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */,
 				790720CC2573DB46007626D3 /* RoundedButton.swift in Sources */,
 				790720FE2574288C007626D3 /* RegisterViewController.swift in Sources */,
 				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,
 				790720962573C6B2007626D3 /* AppDelegate.swift in Sources */,
+				795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */,
 				7907210825743EF8007626D3 /* FuelType.swift in Sources */,
 				790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */,
 				790720CF2573DBD9007626D3 /* CircleImage.swift in Sources */,

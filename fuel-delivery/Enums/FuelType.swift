@@ -8,7 +8,7 @@
 import Foundation
 
 enum FuelType: String {
-    case petrol = "petrol"
-    case diesel = "diesel"
-    case engineOil = "engineOil"
+    case petrol = "Petrol"
+    case diesel = "Diesel"
+    case engineOil = "Engine Oil"
 }

@@ -8,6 +8,6 @@
 import Foundation
 
 enum DieselType: String {
-    case standart = "standart"
+    case standart = "Standart"
     case superDiesel = "Super Diesel"
 }

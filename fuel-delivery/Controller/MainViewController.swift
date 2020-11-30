@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import Firebase
 
-class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var locationLabel: UILabel!
@@ -105,6 +105,13 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 orderViewController.userLat = self.userLat
                 orderViewController.userLon = self.userLon
                 orderViewController.userAddress = self.locationLabel.text!
+            }
+        }
+        
+        if segue.identifier == TO_NEARBY_ORDERS {
+            if let nearbyOrdersViewController = segue.destination as? NearbyOrdersViewController {
+                nearbyOrdersViewController.userLat = self.userLat
+                nearbyOrdersViewController.userLon = self.userLon
             }
         }
     }
