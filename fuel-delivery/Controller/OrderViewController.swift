@@ -159,7 +159,8 @@ class OrderViewController: UIViewController {
             ADDRESS: userAddress,
             DELIVERY_TIME: deliveryTime,
             QUANTITY: quantity,
-            TOTAL_PRICE: totalPrice
+            TOTAL_PRICE: totalPrice,
+            STATUS: ORDERED
         ]) { (err) in
             if let err = err {
                 debugPrint("Error adding document: \(err.localizedDescription)")

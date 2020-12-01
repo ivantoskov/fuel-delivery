@@ -11,6 +11,7 @@ import Foundation
 let USERS_REF = "users"
 let FIRST_NAME = "firstName"
 let LAST_NAME = "lastName"
+let EMAIL = "email"
 let DATE_CREATED = "dateCreated"
 let USER_ID = "userID"
 let DATE_ORDERED = "dateOrdered"
@@ -24,11 +25,14 @@ let FUEL_QUALITY = "fuelQuality"
 let DELIVERY_TIME = "deliveryTime"
 let QUANTITY = "quantity"
 let TOTAL_PRICE = "totalPrice"
+let STATUS = "status"
 
 /* Segue identifiers */
 let TO_ORDER = "toOrder"
 let TO_NEARBY_ORDERS = "toNearbyOrders"
 let TO_PUBLISHED_ORDER = "toPublishedOrder"
+let TO_MY_ORDERS = "toMyOrders"
+let TO_PROFILE = "toProfile"
 
 /* Storyboard identifiers */
 let MAIN = "Main"
@@ -36,4 +40,9 @@ let SIGN_IN_VC = "signInVC"
 let NEARBY_ORDERS_VC = "nearbyOrdersVC"
 let PUBLISHED_ORDER_VC = "publishedOrderVC"
 
+/* TableView Cells */
 let ORDER_CELL = "orderCell"
+
+/* Order status */
+let ORDERED = "Ordered"
+let ACCEPTED = "Accepted"

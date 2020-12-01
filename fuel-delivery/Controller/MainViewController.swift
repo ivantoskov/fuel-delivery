@@ -23,6 +23,13 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /* let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signoutError as NSError {
+            debugPrint("Error signing out: \(signoutError)")
+        } */
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,23 +87,13 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             if (error) == nil {
                 if placemarksArray!.count > 0 {
                     let placemark = placemarksArray?[0]
-                    let address = "\(placemark?.thoroughfare ?? ""), \(placemark?.locality ?? ""), \(placemark?.subLocality ?? ""), \(placemark?.administrativeArea ?? ""), \(placemark?.postalCode ?? ""), \(placemark?.country ?? "")"
+                    let address = "\(placemark?.thoroughfare ?? "") \(placemark?.locality ?? "") \(placemark?.subLocality ?? ""), \(placemark?.administrativeArea ?? "") \(placemark?.postalCode ?? "") \(placemark?.country ?? "")"
                     self.locationLabel.text = address
                 }
             }
         }
         userLat = userLocation.coordinate.latitude
         userLon = userLocation.coordinate.longitude
-    }
-    
-    @IBAction func profilePressed(_ sender: Any) {
-        // For now it will just sign out the user
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signoutError as NSError {
-            debugPrint("Error signing out: \(signoutError)")
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

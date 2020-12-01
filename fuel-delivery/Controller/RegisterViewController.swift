@@ -38,9 +38,9 @@ class RegisterViewController: UIViewController {
             })
             guard let userId = Auth.auth().currentUser?.uid else { return }
             Firestore.firestore().collection(USERS_REF).document(userId).setData([
-                FIRST_NAME: firstName,
-                LAST_NAME: lastName,
-                DATE_ORDERED: FieldValue.serverTimestamp()
+                DISPLAY_NAME: "\(firstName) \(lastName)",
+                EMAIL: email,
+                DATE_CREATED: FieldValue.serverTimestamp()
                 ], completion: { (error) in
                     if let error = error {
                         debugPrint(error.localizedDescription)

@@ -17,6 +17,8 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
     @IBOutlet weak var QuantityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var dateOrderedLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     private var order: Order!
         
@@ -62,13 +64,30 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         return deg * (Double.pi / 180.0)
     }
     
+    func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d YYYY"
+        let timestamp = formatter.string(from: date)
+        return timestamp
+    }
+    
     func configureCell(order: Order, lat: Double, lon: Double) {
         self.order = order
-        nameLabel.text = order.displayName
-        fuelLabel.text = order.fuelType + "(" + order.quality + ")"
-        QuantityLabel.text = String(order.quantity) + " litres"
-        dateLabel.text = order.deliveryDate
-        configureMap(lat: order.latitude, lon: order.longitude)
+        nameLabel.text = "Name: " + order.displayName
+        fuelLabel.text = "Fuel: " + order.fuelType + " (" + order.quality + ")"
+        QuantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
+        dateLabel.text = "Ending: " + order.deliveryDate
         distanceLabel.text = "\(Int(getDistanceInKm(order: order, myLat: lat, myLon: lon))) km from you"
+        configureMap(lat: order.latitude, lon: order.longitude)
+        
+    }
+    
+    func configureMyOrderCell(order: Order) {
+        self.order = order
+        fuelLabel.text = "Fuel: " + order.fuelType + " (" + order.quality + ")"
+        QuantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
+        dateOrderedLabel.text = "Ordered on: " + dateToString(date: order.dateOrdered)
+        statusLabel.text = "Status: " + order.status
+        configureMap(lat: order.latitude, lon: order.longitude)
     }
 }

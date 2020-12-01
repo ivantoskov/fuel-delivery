@@ -22,6 +22,9 @@
 		7907210125742962007626D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210025742962007626D3 /* Constants.swift */; };
 		7907210525743C8F007626D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210425743C8F007626D3 /* Order.swift */; };
 		7907210825743EF8007626D3 /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210725743EF8007626D3 /* FuelType.swift */; };
+		792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB792576981B00367C5E /* ProfileViewController.swift */; };
+		792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */; };
+		792FBB802576CFFA00367C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7F2576CFFA00367C5E /* User.swift */; };
 		795F0AF42574F12900065B8B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF32574F12900065B8B /* OrderViewController.swift */; };
 		795F0AF82574F8B600065B8B /* PetrolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF72574F8B600065B8B /* PetrolType.swift */; };
 		795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AFA2574F8C200065B8B /* DieselType.swift */; };
@@ -52,6 +55,9 @@
 		7907210025742962007626D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7907210425743C8F007626D3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		7907210725743EF8007626D3 /* FuelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		792FBB792576981B00367C5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
+		792FBB7F2576CFFA00367C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		795F0AF32574F12900065B8B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		795F0AF72574F8B600065B8B /* PetrolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolType.swift; sourceTree = "<group>"; };
 		795F0AFA2574F8C200065B8B /* DieselType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieselType.swift; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				790720FD2574288C007626D3 /* RegisterViewController.swift */,
 				795F0B0025752CDA00065B8B /* NearbyOrdersViewController.swift */,
 				795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */,
+				792FBB792576981B00367C5E /* ProfileViewController.swift */,
+				792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				7907210425743C8F007626D3 /* Order.swift */,
+				792FBB7F2576CFFA00367C5E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,12 +326,15 @@
 			files = (
 				795F0B0725755B3000065B8B /* CircleView.swift in Sources */,
 				795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */,
+				792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */,
 				790720FB2574271C007626D3 /* LoginViewController.swift in Sources */,
+				792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */,
 				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
 				7907210525743C8F007626D3 /* Order.swift in Sources */,
 				795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */,
 				795F0B0425752D9800065B8B /* OrderCell.swift in Sources */,
 				795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */,
+				792FBB802576CFFA00367C5E /* User.swift in Sources */,
 				790720CC2573DB46007626D3 /* RoundedButton.swift in Sources */,
 				790720FE2574288C007626D3 /* RegisterViewController.swift in Sources */,
 				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,

@@ -11,7 +11,6 @@ import Firebase
 
 class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
 
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
@@ -51,7 +50,18 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     }
     
     @IBAction func takeOrderPressed(_ sender: Any) {
-        
+        Firestore.firestore().collection(ORDERS_REF).document(order.documentId)
+            .updateData([STATUS: ACCEPTED]) { (error) in
+                if let error = error {
+                    debugPrint("Unable to update comment: \(error.localizedDescription)")
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    
+    @IBAction func closePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

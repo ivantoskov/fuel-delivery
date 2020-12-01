@@ -1,25 +1,21 @@
 //
-//  NearbyOrdersViewController.swift
+//  MyOrdersViewController.swift
 //  fuel-delivery
 //
-//  Created by Ivan Toskov on 30/11/2020.
+//  Created by Ivan Toskov on 01/12/2020.
 //
 
 import UIKit
-import MapKit
 import Firebase
 
-class NearbyOrdersViewController: UIViewController {
-    
-    @IBOutlet private weak var tableView: UITableView!
+class MyOrdersViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
     
     private var orders = [Order]()
     private var ordersListener: ListenerRegistration!
     private var ordersCollectionRef: CollectionReference!
     private var handle: AuthStateDidChangeListenerHandle?
-    
-    var userLat: Double!
-    var userLon: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +49,7 @@ class NearbyOrdersViewController: UIViewController {
     }
     
     func setListener() {
-        ordersListener = ordersCollectionRef.whereField(STATUS, isEqualTo: ORDERED)
+        ordersListener = ordersCollectionRef.whereField(USER_ID, isEqualTo: Auth.auth().currentUser!.uid)
             .order(by: DATE_ORDERED, descending: true)
             .addSnapshotListener { (snapshot, error) in
             if let err = error {
@@ -69,17 +65,16 @@ class NearbyOrdersViewController: UIViewController {
     @IBAction func closePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
-extension NearbyOrdersViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyOrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(order: orders[indexPath.row], lat: userLat, lon: userLon)
+            cell.configureMyOrderCell(order: orders[indexPath.row])
             return cell
         } else {
             return UITableViewCell()
@@ -87,15 +82,7 @@ extension NearbyOrdersViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: TO_PUBLISHED_ORDER, sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == TO_PUBLISHED_ORDER {
-            if let publishedOrderViewController = segue.destination as? PublishedOrderViewController {
-                publishedOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
-                tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-            }
-        }
+        tableView.deselectRow(at: indexPath, animated: true)
+        //performSegue(withIdentifier: TO_PUBLISHED_ORDER, sender: self)
     }
 }

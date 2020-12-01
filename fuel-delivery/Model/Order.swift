@@ -22,9 +22,10 @@ class Order {
     private(set) var longitude: Double!
     private(set) var address: String!
     private(set) var totalCost: Double!
+    private(set) var status: String!
     
     
-    init(displayName: String, dateOrdered: Date, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double) {
+    init(displayName: String, dateOrdered: Date, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double, status: String) {
         self.displayName = displayName
         self.dateOrdered = dateOrdered
         self.userId = userId
@@ -37,6 +38,7 @@ class Order {
         self.longitude = longitude
         self.address = address
         self.totalCost = totalCost
+        self.status = status
     }
     
     class func parseData(snapshot: QuerySnapshot?) -> [Order] {
@@ -56,7 +58,8 @@ class Order {
                 let longitude = data[LONGITUDE] as? Double ?? 0.0
                 let address = data[ADDRESS] as? String ?? ""
                 let totalCost = data[TOTAL_PRICE] as? Double ?? 0.0
-                let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost)
+                let status = data[STATUS] as? String ?? ""
+            let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost, status: status)
                 orders.append(newOrder)
         }
         return orders
