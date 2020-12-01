@@ -168,4 +168,9 @@ class OrderViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func closePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

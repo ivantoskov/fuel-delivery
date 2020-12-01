@@ -9,12 +9,13 @@ import UIKit
 import MapKit
 import Firebase
 
-class PublishedOrderViewController: UIViewController, MKMapViewDelegate {
+class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
 
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var fuelLabel: UILabel!
     @IBOutlet weak var totalCostLabel: UILabel!
     @IBOutlet weak var deliveryTimeLabel: UILabel!

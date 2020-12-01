@@ -183,6 +183,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -190,6 +191,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
+  - ScrollingContentViewController (1.4.0)
   - SDWebImage (5.10.0):
     - SDWebImage/Core (= 5.10.0)
   - SDWebImage/Core (5.10.0)
@@ -200,6 +202,8 @@ DEPENDENCIES:
   - Firebase/Firestore
   - FirebaseUI
   - FirebaseUI/Google
+  - IQKeyboardManagerSwift
+  - ScrollingContentViewController
 
 SPEC REPOS:
   trunk:
@@ -228,9 +232,11 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
     - Protobuf
+    - ScrollingContentViewController
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -259,11 +265,13 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  ScrollingContentViewController: 1bff026d6f32c15489dcd22821911eda5fda3801
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: 88bc03ce3f6f362b2e1c73bfbfa4cfa0ed784d35
+PODFILE CHECKSUM: 5155d150faecf29aaea042f19979b2336f795ad4
 
 COCOAPODS: 1.9.3

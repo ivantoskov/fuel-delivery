@@ -66,6 +66,11 @@ class NearbyOrdersViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func closePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension NearbyOrdersViewController: UITableViewDelegate, UITableViewDataSource {

@@ -12,5 +12,8 @@ target 'fuel-delivery' do
   
   pod 'FirebaseUI'
   pod 'FirebaseUI/Google'
-
+  
+  pod 'IQKeyboardManagerSwift'
+  pod 'ScrollingContentViewController'
+  
 end

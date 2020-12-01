@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable class RoundedButton: UIButton {
-    
+        
     @IBInspectable var cornerRadius:CGFloat = 10
     @IBInspectable var textColor:UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
@@ -17,5 +17,4 @@ import UIKit
         self.layer.masksToBounds = true
         self.titleLabel?.textColor = textColor
     }
-    
 }
