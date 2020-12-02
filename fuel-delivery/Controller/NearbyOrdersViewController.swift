@@ -20,6 +20,8 @@ class NearbyOrdersViewController: UIViewController {
     
     var userLat: Double!
     var userLon: Double!
+    var userLocality: String!
+    var userCountry: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,8 @@ class NearbyOrdersViewController: UIViewController {
     
     func setListener() {
         ordersListener = ordersCollectionRef.whereField(STATUS, isEqualTo: ORDERED)
+            .whereField(LOCALITY, isEqualTo: self.userLocality!)
+            .whereField(COUNTRY, isEqualTo: self.userCountry!)
             .order(by: DATE_ORDERED, descending: true)
             .addSnapshotListener { (snapshot, error) in
             if let err = error {

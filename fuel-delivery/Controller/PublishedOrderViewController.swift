@@ -59,9 +59,4 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
                 }
             }
         }
-    
-    @IBAction func closePressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }

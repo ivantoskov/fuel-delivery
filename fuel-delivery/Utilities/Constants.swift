@@ -26,6 +26,8 @@ let DELIVERY_TIME = "deliveryTime"
 let QUANTITY = "quantity"
 let TOTAL_PRICE = "totalPrice"
 let STATUS = "status"
+let LOCALITY = "locality"
+let COUNTRY = "country"
 
 /* Segue identifiers */
 let TO_ORDER = "toOrder"

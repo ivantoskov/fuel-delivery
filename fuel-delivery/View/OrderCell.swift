@@ -24,13 +24,10 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     func configureMap(lat: Double, lon: Double) {
@@ -77,7 +74,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         fuelLabel.text = "Fuel: " + order.fuelType + " (" + order.quality + ")"
         QuantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
         dateLabel.text = "Ending: " + order.deliveryDate
-        distanceLabel.text = "\(Int(getDistanceInKm(order: order, myLat: lat, myLon: lon))) km from you"
+        distanceLabel.text = String(format: "%.1f", getDistanceInKm(order: order, myLat: lat, myLon: lon)) + "km from you"
         configureMap(lat: order.latitude, lon: order.longitude)
         
     }

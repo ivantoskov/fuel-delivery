@@ -31,6 +31,8 @@ class OrderViewController: UIViewController {
     var userLat: Double!
     var userLon: Double!
     var userAddress = ""
+    var userLocality = ""
+    var userCountry = ""
     var quantity = 0
     var totalPrice: Float = 0.0
     
@@ -160,6 +162,8 @@ class OrderViewController: UIViewController {
             DELIVERY_TIME: deliveryTime,
             QUANTITY: quantity,
             TOTAL_PRICE: totalPrice,
+            LOCALITY: userLocality,
+            COUNTRY: userCountry,
             STATUS: ORDERED
         ]) { (err) in
             if let err = err {

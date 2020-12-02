@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     
     private var usersCollectionRef: CollectionReference!
     private var usersListener: ListenerRegistration!
+    private var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,5 +41,20 @@ class ProfileViewController: UIViewController {
     @IBAction func closePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func signOutPressed(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signoutError as NSError {
+            debugPrint("Error signing out: \(signoutError)")
+        }
+        
+        let storyboard = UIStoryboard(name: MAIN, bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
     
 }

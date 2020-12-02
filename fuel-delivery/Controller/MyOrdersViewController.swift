@@ -33,8 +33,8 @@ class MyOrdersViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if Auth.auth().currentUser == nil {
-                let storboard = UIStoryboard(name: MAIN, bundle: nil)
-                let loginVC = storboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
+                let storyboard = UIStoryboard(name: MAIN, bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
                 self.present(loginVC, animated: true, completion: nil)
             } else {
                 self.setListener()
@@ -83,6 +83,5 @@ extension MyOrdersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //performSegue(withIdentifier: TO_PUBLISHED_ORDER, sender: self)
     }
 }

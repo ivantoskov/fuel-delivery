@@ -20,16 +20,11 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     private var userLat = 0.0
     private var userLon = 0.0
+    private var userLocality = ""
+    private var userCountry = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /* let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signoutError as NSError {
-            debugPrint("Error signing out: \(signoutError)")
-        } */
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,12 +56,14 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
 
         mapView.setRegion(region, animated: true)
         getAddress(location: userLocation)
+        userLat = userLocation.coordinate.latitude
+        userLon = userLocation.coordinate.longitude
         mapView.showsUserLocation = true
     }
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            print("Error - locationManager: \(error.localizedDescription)")
+        print("Error - locationManager: \(error.localizedDescription)")
     }
 
     func determineCurrentLocation() {
@@ -83,17 +80,17 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func getAddress(location: CLLocation) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { (placemarksArray, error) in
-            print(placemarksArray!)
             if (error) == nil {
                 if placemarksArray!.count > 0 {
                     let placemark = placemarksArray?[0]
                     let address = "\(placemark?.thoroughfare ?? "") \(placemark?.locality ?? "") \(placemark?.subLocality ?? ""), \(placemark?.administrativeArea ?? "") \(placemark?.postalCode ?? "") \(placemark?.country ?? "")"
                     self.locationLabel.text = address
+                    self.userLocality = placemark?.locality ?? "Unknown"
+                    self.userCountry = placemark?.country ?? "Unknown"
                 }
             }
         }
-        userLat = userLocation.coordinate.latitude
-        userLon = userLocation.coordinate.longitude
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,6 +99,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 orderViewController.userLat = self.userLat
                 orderViewController.userLon = self.userLon
                 orderViewController.userAddress = self.locationLabel.text!
+                orderViewController.userLocality = self.userLocality
+                orderViewController.userCountry = self.userCountry
             }
         }
         
@@ -109,6 +108,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             if let nearbyOrdersViewController = segue.destination as? NearbyOrdersViewController {
                 nearbyOrdersViewController.userLat = self.userLat
                 nearbyOrdersViewController.userLon = self.userLon
+                nearbyOrdersViewController.userLocality = self.userLocality
+                nearbyOrdersViewController.userCountry = self.userCountry
             }
         }
     }

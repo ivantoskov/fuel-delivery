@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class User {
+    
     private(set) var displayName: String!
     private(set) var email: String!
     private(set) var userId: String!
