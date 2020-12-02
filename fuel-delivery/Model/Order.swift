@@ -64,7 +64,7 @@ class Order {
                 let locality = data[LOCALITY] as? String ?? ""
                 let country = data[COUNTRY] as? String ?? ""
                 let status = data[STATUS] as? String ?? ""
-            let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost, locality: locality, country: country, status: status)
+                let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost, locality: locality, country: country, status: status)
                 orders.append(newOrder)
         }
         return orders

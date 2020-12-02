@@ -33,6 +33,8 @@
 		795F0B0425752D9800065B8B /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0325752D9800065B8B /* OrderCell.swift */; };
 		795F0B0725755B3000065B8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0625755B3000065B8B /* CircleView.swift */; };
 		795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */; };
+		79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A225781DCE00134251 /* TakenOrdersViewController.swift */; };
+		79C279A62578218C00134251 /* BaseOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A52578218C00134251 /* BaseOrderViewController.swift */; };
 		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		795F0B0325752D9800065B8B /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		795F0B0625755B3000065B8B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedOrderViewController.swift; sourceTree = "<group>"; };
+		79C279A225781DCE00134251 /* TakenOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrdersViewController.swift; sourceTree = "<group>"; };
+		79C279A52578218C00134251 /* BaseOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOrderViewController.swift; sourceTree = "<group>"; };
 		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fuel_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +134,8 @@
 				795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */,
 				792FBB792576981B00367C5E /* ProfileViewController.swift */,
 				792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */,
+				79C279A225781DCE00134251 /* TakenOrdersViewController.swift */,
+				79C279A52578218C00134251 /* BaseOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,11 +346,13 @@
 				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,
 				790720962573C6B2007626D3 /* AppDelegate.swift in Sources */,
 				795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */,
+				79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */,
 				7907210825743EF8007626D3 /* FuelType.swift in Sources */,
 				790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */,
 				790720CF2573DBD9007626D3 /* CircleImage.swift in Sources */,
 				7907210125742962007626D3 /* Constants.swift in Sources */,
 				795F0AF82574F8B600065B8B /* PetrolType.swift in Sources */,
+				79C279A62578218C00134251 /* BaseOrderViewController.swift in Sources */,
 				795F0AF42574F12900065B8B /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

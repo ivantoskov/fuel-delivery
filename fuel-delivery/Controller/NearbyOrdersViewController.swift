@@ -9,52 +9,14 @@ import UIKit
 import MapKit
 import Firebase
 
-class NearbyOrdersViewController: UIViewController {
-    
-    @IBOutlet private weak var tableView: UITableView!
-    
-    private var orders = [Order]()
-    private var ordersListener: ListenerRegistration!
-    private var ordersCollectionRef: CollectionReference!
-    private var handle: AuthStateDidChangeListenerHandle?
-    
+class NearbyOrdersViewController: BaseOrderViewController {
+
     var userLat: Double!
     var userLon: Double!
     var userLocality: String!
     var userCountry: String!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        /* Dynamicly resizing UITableViewCell */
-        tableView.estimatedRowHeight = 180
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        ordersCollectionRef = Firestore.firestore().collection(ORDERS_REF)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            if Auth.auth().currentUser == nil {
-                let storboard = UIStoryboard(name: MAIN, bundle: nil)
-                let loginVC = storboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
-                self.present(loginVC, animated: true, completion: nil)
-            } else {
-                self.setListener()
-            }
-        })
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        if ordersListener != nil {
-            ordersListener.remove()
-        }
-    }
-    
-    func setListener() {
+    override func setListener() {
         ordersListener = ordersCollectionRef.whereField(STATUS, isEqualTo: ORDERED)
             .whereField(LOCALITY, isEqualTo: self.userLocality!)
             .whereField(COUNTRY, isEqualTo: self.userCountry!)
@@ -70,20 +32,13 @@ class NearbyOrdersViewController: UIViewController {
         }
     }
     
-    @IBAction func closePressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-extension NearbyOrdersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(order: orders[indexPath.row], lat: userLat, lon: userLon)
+            cell.configureCell(forOrder: orders[indexPath.row], lat: userLat, lon: userLon)
             return cell
         } else {
             return UITableViewCell()
@@ -102,4 +57,5 @@ extension NearbyOrdersViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
     }
+    
 }

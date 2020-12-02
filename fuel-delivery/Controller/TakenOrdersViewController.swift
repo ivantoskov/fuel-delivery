@@ -1,17 +1,24 @@
 //
-//  MyOrdersViewController.swift
+//  TakenOrdersViewController.swift
 //  fuel-delivery
 //
-//  Created by Ivan Toskov on 01/12/2020.
+//  Created by Ivan Toskov on 02/12/2020.
 //
 
 import UIKit
 import Firebase
 
-class MyOrdersViewController: BaseOrderViewController {
+class TakenOrdersViewController: BaseOrderViewController {
+    
+    var userLat: Double!
+    var userLon: Double!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func setListener() {
-        ordersListener = ordersCollectionRef.whereField(USER_ID, isEqualTo: Auth.auth().currentUser!.uid)
+        ordersListener = ordersCollectionRef.whereField(ACCEPTED_BY_USER, isEqualTo: Auth.auth().currentUser!.uid)
             .order(by: DATE_ORDERED, descending: true)
             .addSnapshotListener { (snapshot, error) in
             if let err = error {
@@ -30,7 +37,7 @@ class MyOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forMyOrder: orders[indexPath.row])
+            cell.configureCell(forOrder: orders[indexPath.row], lat: userLat, lon: userLon)
             return cell
         } else {
             return UITableViewCell()

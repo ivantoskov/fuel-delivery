@@ -134,8 +134,9 @@ class OrderViewController: UIViewController {
         let currentValue = round((quantitySlider.value - quantitySlider.minimumValue) / step)
         quantity = Int(currentValue)
         totalPrice = currentValue * 1.97
+        let totalPriceFormatted = String(format: "%.2f", totalPrice)
         quantityLabel.text = "\(Int(currentValue)) litres"
-        totalPriceLabel.text = "\(quantity) litres x 1.97$ = \(totalPrice)$"
+        totalPriceLabel.text = "\(quantity) litres x 1.97$ = \(totalPriceFormatted)$"
     }
     
     @IBAction func deliveryChanged(_ sender: Any) {
@@ -169,7 +170,7 @@ class OrderViewController: UIViewController {
             if let err = err {
                 debugPrint("Error adding document: \(err.localizedDescription)")
             } else {
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

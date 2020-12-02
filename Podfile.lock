@@ -191,7 +191,6 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
-  - ScrollingContentViewController (1.4.0)
   - SDWebImage (5.10.0):
     - SDWebImage/Core (= 5.10.0)
   - SDWebImage/Core (5.10.0)
@@ -203,7 +202,6 @@ DEPENDENCIES:
   - FirebaseUI
   - FirebaseUI/Google
   - IQKeyboardManagerSwift
-  - ScrollingContentViewController
 
 SPEC REPOS:
   trunk:
@@ -236,7 +234,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
-    - ScrollingContentViewController
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -269,9 +266,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
-  ScrollingContentViewController: 1bff026d6f32c15489dcd22821911eda5fda3801
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: 5155d150faecf29aaea042f19979b2336f795ad4
+PODFILE CHECKSUM: 2b74825d39a63a1302147d2d04769e74121a83fa
 
 COCOAPODS: 1.9.3

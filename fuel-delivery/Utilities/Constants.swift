@@ -28,6 +28,7 @@ let TOTAL_PRICE = "totalPrice"
 let STATUS = "status"
 let LOCALITY = "locality"
 let COUNTRY = "country"
+let ACCEPTED_BY_USER = "acceptedByUser"
 
 /* Segue identifiers */
 let TO_ORDER = "toOrder"
@@ -35,6 +36,7 @@ let TO_NEARBY_ORDERS = "toNearbyOrders"
 let TO_PUBLISHED_ORDER = "toPublishedOrder"
 let TO_MY_ORDERS = "toMyOrders"
 let TO_PROFILE = "toProfile"
+let TO_TAKEN_ORDERS = "toTakenOrders"
 
 /* Storyboard identifiers */
 let MAIN = "Main"

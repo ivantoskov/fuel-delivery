@@ -52,10 +52,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 250, longitudinalMeters: 250)
 
         mapView.setRegion(region, animated: true)
-        getAddress(location: userLocation)
+        getAddress(fromLocation: userLocation)
         userLat = userLocation.coordinate.latitude
         userLon = userLocation.coordinate.longitude
         mapView.showsUserLocation = true
@@ -77,7 +77,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
     
-    func getAddress(location: CLLocation) {
+    func getAddress(fromLocation location: CLLocation) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { (placemarksArray, error) in
             if (error) == nil {
@@ -90,7 +90,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 }
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,6 +109,13 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 nearbyOrdersViewController.userLon = self.userLon
                 nearbyOrdersViewController.userLocality = self.userLocality
                 nearbyOrdersViewController.userCountry = self.userCountry
+            }
+        }
+        
+        if segue.identifier == TO_PROFILE {
+            if let profileViewController = segue.destination as? ProfileViewController {
+                profileViewController.userLat = self.userLat
+                profileViewController.userLon = self.userLon
             }
         }
     }
