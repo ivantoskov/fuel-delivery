@@ -83,13 +83,6 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         return deg * (Double.pi / 180.0)
     }
     
-    func dateToString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d YYYY"
-        let timestamp = formatter.string(from: date)
-        return timestamp
-    }
-    
     func configureCell(forOrder order: Order, lat: Double, lon: Double) {
         self.order = order
         nameLabel.text = "Name: " + order.displayName
@@ -105,7 +98,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         self.order = order
         fuelLabel.text = "Fuel: " + order.fuelType + " (" + order.quality + ")"
         quantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
-        dateOrderedLabel.text = "Ordered on: " + dateToString(date: order.dateOrdered)
+        dateOrderedLabel.text = "Ordered on: " + order.dateOrdered
         statusLabel.text = "Status: " + order.status
         configureMap(lat: order.latitude, lon: order.longitude)
     }

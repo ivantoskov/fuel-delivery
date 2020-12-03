@@ -9,14 +9,14 @@ import UIKit
 import MapKit
 import Firebase
 
-class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MainViewController: UserLocationViewController, MKMapViewDelegate/*, CLLocationManagerDelegate*/ {
 
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var locationLabel: UILabel!
     
-    var locationManager: CLLocationManager!
-    var userLocation: CLLocation!
     private var handle: AuthStateDidChangeListenerHandle?
+    private var ordersListener: ListenerRegistration!
+    private var ordersCollectionRef: CollectionReference!
     
     private var userLat = 0.0
     private var userLon = 0.0
@@ -44,12 +44,25 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 self.present(signInVC, animated: true, completion: nil)
             } else {
                 //self.setListener()
-                print ("logged in")
             }
         })
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /*func setListener() {
+        ordersListener = Firestore.firestore().collection(ORDERS_REF)
+            .whereField(USER_ID, isEqualTo: Auth.auth().currentUser!.uid)
+            .whereField(STATUS, isEqualTo: ORDERED)
+            .addSnapshotListener { (snapshot, error) in
+            if let err = error {
+                debugPrint("Error fetching docs: \(err)")
+            } else {
+                
+            }
+                
+        }
+    } */
+    
+    override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 250, longitudinalMeters: 250)
@@ -59,22 +72,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         userLat = userLocation.coordinate.latitude
         userLon = userLocation.coordinate.longitude
         mapView.showsUserLocation = true
-    }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error - locationManager: \(error.localizedDescription)")
-    }
-
-    func determineCurrentLocation() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
     }
     
     func getAddress(fromLocation location: CLLocation) {

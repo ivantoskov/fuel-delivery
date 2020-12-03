@@ -19,6 +19,7 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     @IBOutlet weak var totalCostLabel: UILabel!
     @IBOutlet weak var deliveryTimeLabel: UILabel!
     @IBOutlet weak var profitLabel: UILabel!
+    @IBOutlet weak var takeOrderButton: UIButton!
     
     var order: Order!
     
@@ -28,6 +29,10 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     }
     
     func setUpUI(order: Order) {
+        if (order.userId == Auth.auth().currentUser!.uid) {
+            takeOrderButton.isHidden = true
+            print ("That's your order!")
+        }
         nameLabel.text = order.displayName.uppercased() + "'S ORDER"
         addressLabel.text = order.address
         fuelLabel.text = order.fuelType + "(" + order.quality + ")"
@@ -72,16 +77,17 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     }
     
     @IBAction func takeOrderPressed(_ sender: Any) {
-        Firestore.firestore().collection(ORDERS_REF).document(order.documentId)
-            .updateData([
-                STATUS: ACCEPTED,
-                ACCEPTED_BY_USER: Auth.auth().currentUser!.uid])
-            { (error) in
-                if let error = error {
-                    debugPrint("Unable to update data: \(error.localizedDescription)")
-                } else {
-                    self.dismiss(animated: true, completion: nil)
+
+            Firestore.firestore().collection(ORDERS_REF).document(order.documentId)
+                .updateData([
+                    STATUS: ACCEPTED,
+                    ACCEPTED_BY_USER: Auth.auth().currentUser!.uid])
+                { (error) in
+                    if let error = error {
+                        debugPrint("Unable to update data: \(error.localizedDescription)")
+                    } else {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
-            }
-    }
+        }
 }

@@ -38,7 +38,15 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUi()
+    }
+    
+    func setUi() {
         locationLabel.text = userAddress
+        quantitySlider.value = 10.0
+        quantity = 10
+        quantityLabel.text = "10 litres"
+        deliveryTime = formatDate(date: Date())
     }
     
     func showSegmentControl(segmentToShow: UISegmentedControl, segments: [UISegmentedControl]) {
@@ -51,16 +59,17 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func fuelChanged(_ sender: Any) {
+        let segmentsArray: [UISegmentedControl] = [petrolQualitySegment, dieselQualitySegment, oilTypeSegment]
         switch fuelSegment.selectedSegmentIndex {
         case 0:
             selectedFuel = FuelType.petrol.rawValue
-            showSegmentControl(segmentToShow: petrolQualitySegment, segments: [petrolQualitySegment, dieselQualitySegment, oilTypeSegment])
+            showSegmentControl(segmentToShow: petrolQualitySegment, segments: segmentsArray)
         case 1:
             selectedFuel = FuelType.diesel.rawValue
-            showSegmentControl(segmentToShow: dieselQualitySegment, segments: [petrolQualitySegment, dieselQualitySegment, oilTypeSegment])
+            showSegmentControl(segmentToShow: dieselQualitySegment, segments: segmentsArray)
         case 2:
             selectedFuel = FuelType.engineOil.rawValue
-            showSegmentControl(segmentToShow: oilTypeSegment, segments: [petrolQualitySegment, dieselQualitySegment, oilTypeSegment])
+            showSegmentControl(segmentToShow: oilTypeSegment, segments: segmentsArray)
         default:
             selectedFuel = FuelType.petrol.rawValue
         }
@@ -89,7 +98,7 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func oilChanged(_ sender: Any) {
-        switch petrolQualitySegment.selectedSegmentIndex {
+        switch oilTypeSegment.selectedSegmentIndex {
         case 0:
             selectedOil = EngineOilType.fiveForty.rawValue
         case 1:
@@ -116,17 +125,15 @@ class OrderViewController: UIViewController {
         }
     }
     
-    func formatDate(date: DateFormatter) -> String {
-        date.dateStyle = DateFormatter.Style.short
-        date.timeStyle = DateFormatter.Style.short
-        let strDate = date.string(from: deliveryTimePicker.date)
+    func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d YYYY HH:mm"
+        let strDate = dateFormatter.string(from: date)
         return strDate
     }
     
     @IBAction func datePickerChanged(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        let strDate = formatDate(date: dateFormatter)
-        deliveryTime = strDate;
+        deliveryTime = formatDate(date: deliveryTimePicker.date)
     }
     
     @IBAction func quantityChanged(_ sender: Any) {
@@ -154,7 +161,7 @@ class OrderViewController: UIViewController {
         Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
             FUEL_TYPE: selectedFuel,
             FUEL_QUALITY: selectedType(fuel: selectedFuel),
-            DATE_ORDERED: FieldValue.serverTimestamp(),
+            DATE_ORDERED: formatDate(date: Date()),
             DISPLAY_NAME: Auth.auth().currentUser?.displayName ?? "",
             USER_ID: Auth.auth().currentUser?.uid ?? "",
             LATITUDE: userLat ?? 0.0,

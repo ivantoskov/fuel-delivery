@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import MapKit
 
 class ProfileViewController: UIViewController {
 

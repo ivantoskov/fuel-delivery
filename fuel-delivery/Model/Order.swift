@@ -11,12 +11,12 @@ import Firebase
 class Order {
     
     private(set) var displayName: String!
-    private(set) var dateOrdered: Date!
+    private(set) var dateOrdered: String!
     private(set) var userId: String!
     private(set) var fuelType: String!
     private(set) var quality: String!
     private(set) var quantity: Int!
-    private(set) var deliveryDate: String! // !!!!
+    private(set) var deliveryDate: String!
     private(set) var documentId: String!
     private(set) var latitude: Double!
     private(set) var longitude: Double!
@@ -26,7 +26,7 @@ class Order {
     private(set) var country: String!
     private(set) var status: String!
     
-    init(displayName: String, dateOrdered: Date, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double, locality: String, country: String, status: String) {
+    init(displayName: String, dateOrdered: String, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double, locality: String, country: String, status: String) {
         self.displayName = displayName
         self.dateOrdered = dateOrdered
         self.userId = userId
@@ -50,7 +50,7 @@ class Order {
         for document in snap.documents {
                 let data = document.data()
                 let displayName = data[DISPLAY_NAME] as? String ?? ""
-                let dateOrdered = data[DATE_ORDERED] as? Date ?? Date()
+                let dateOrdered = data[DATE_ORDERED] as? String ?? ""
                 let documentId = document.documentID
                 let userId = data[USER_ID] as? String ?? ""
                 let fuelType = data[FUEL_TYPE] as? String ?? ""
@@ -69,5 +69,4 @@ class Order {
         }
         return orders
     }
-    
 }

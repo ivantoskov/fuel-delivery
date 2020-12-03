@@ -940,6 +940,7 @@
                         <outlet property="mapView" destination="eEd-7U-hcm" id="Mg3-Pb-HJV"/>
                         <outlet property="nameLabel" destination="1OX-cc-yfA" id="oXc-Hz-tBg"/>
                         <outlet property="profitLabel" destination="vSJ-RU-e7M" id="Mr6-V5-dPs"/>
+                        <outlet property="takeOrderButton" destination="hgX-61-goo" id="98V-0z-bb9"/>
                         <outlet property="totalCostLabel" destination="5vp-Zf-fbV" id="hxM-9d-rYP"/>
                     </connections>
                 </viewController>
