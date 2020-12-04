@@ -10,16 +10,14 @@ import MapKit
 import Firebase
 
 class NearbyOrdersViewController: BaseOrderViewController {
-
-    var userLat: Double!
-    var userLon: Double!
-    var userLocality: String!
-    var userCountry: String!
     
+    var userLocation: CLLocation!
+        
     override func setListener() {
-        ordersListener = ordersCollectionRef.whereField(STATUS, isEqualTo: ORDERED)
-            .whereField(LOCALITY, isEqualTo: self.userLocality!)
-            .whereField(COUNTRY, isEqualTo: self.userCountry!)
+        let userHash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 4)
+        ordersListener = ordersCollectionRef
+            .whereField(STATUS, isEqualTo: ORDERED)
+            .whereField(GEO_HASH, isEqualTo: userHash)
             .order(by: DATE_ORDERED, descending: true)
             .addSnapshotListener { (snapshot, error) in
             if let err = error {
@@ -38,7 +36,7 @@ class NearbyOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forOrder: orders[indexPath.row], lat: userLat, lon: userLon)
+            cell.configureCell(forOrder: orders[indexPath.row], lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude)
             return cell
         } else {
             return UITableViewCell()
@@ -52,8 +50,7 @@ class NearbyOrdersViewController: BaseOrderViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_PUBLISHED_ORDER {
             if let publishedOrderViewController = segue.destination as? PublishedOrderViewController {
-                publishedOrderViewController.userLat = self.userLat
-                publishedOrderViewController.userLon = self.userLon
+                publishedOrderViewController.userLocation = self.userLocation
                 publishedOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
                 tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             }

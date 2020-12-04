@@ -10,7 +10,7 @@ import MapKit
 
 extension MKMapViewDelegate {
     
-    func configureMap(mapView: MKMapView, lat: Double, lon: Double) {
+    func configureOrderMap(mapView: MKMapView, lat: Double, lon: Double) {
         mapView.delegate = self
         let orgLocation = CLLocationCoordinate2DMake(lat, lon)
         let dropPin = MKPointAnnotation()
@@ -18,6 +18,11 @@ extension MKMapViewDelegate {
         mapView.addAnnotation(dropPin)
         mapView.setRegion(MKCoordinateRegion(center: orgLocation, latitudinalMeters: 250, longitudinalMeters: 250), animated: true)
         mapView.layer.cornerRadius = 10.0
+    }
+    
+    func configureMainMap(mapView: MKMapView, region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
     }
     
     func dropPin(mapView: MKMapView, annotation: MKAnnotation, imageName: String, pinSize: Double) -> MKAnnotationView? {

@@ -26,8 +26,7 @@
 		792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */; };
 		792FBB802576CFFA00367C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7F2576CFFA00367C5E /* User.swift */; };
 		7947928925794852002BA8FD /* BaseOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7947928825794852002BA8FD /* BaseOrderViewController.swift */; };
-		7954011425796BE300AAD5F9 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7954011325796BE300AAD5F9 /* UserLocationViewController.swift */; };
-		795F0AF42574F12900065B8B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF32574F12900065B8B /* OrderViewController.swift */; };
+		795F0AF42574F12900065B8B /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF32574F12900065B8B /* NewOrderViewController.swift */; };
 		795F0AF82574F8B600065B8B /* PetrolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AF72574F8B600065B8B /* PetrolType.swift */; };
 		795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AFA2574F8C200065B8B /* DieselType.swift */; };
 		795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0AFD2574F8D400065B8B /* EngineOilType.swift */; };
@@ -37,6 +36,8 @@
 		795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */; };
 		7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */; };
 		79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A225781DCE00134251 /* TakenOrdersViewController.swift */; };
+		79F837C6257AA9E800509488 /* CLLocationManagerDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */; };
+		79F83824257AD89B00509488 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F83823257AD89B00509488 /* Geohash.swift */; };
 		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +64,7 @@
 		792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
 		792FBB7F2576CFFA00367C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7947928825794852002BA8FD /* BaseOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOrderViewController.swift; sourceTree = "<group>"; };
-		7954011325796BE300AAD5F9 /* UserLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationViewController.swift; sourceTree = "<group>"; };
-		795F0AF32574F12900065B8B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		795F0AF32574F12900065B8B /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		795F0AF72574F8B600065B8B /* PetrolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolType.swift; sourceTree = "<group>"; };
 		795F0AFA2574F8C200065B8B /* DieselType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieselType.swift; sourceTree = "<group>"; };
 		795F0AFD2574F8D400065B8B /* EngineOilType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineOilType.swift; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedOrderViewController.swift; sourceTree = "<group>"; };
 		7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		79C279A225781DCE00134251 /* TakenOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrdersViewController.swift; sourceTree = "<group>"; };
+		79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateExtension.swift; sourceTree = "<group>"; };
+		79F83823257AD89B00509488 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fuel_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,7 +135,7 @@
 			children = (
 				790720992573C6B2007626D3 /* MainViewController.swift */,
 				7947928825794852002BA8FD /* BaseOrderViewController.swift */,
-				795F0AF32574F12900065B8B /* OrderViewController.swift */,
+				795F0AF32574F12900065B8B /* NewOrderViewController.swift */,
 				795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */,
 				795F0B0025752CDA00065B8B /* NearbyOrdersViewController.swift */,
 				792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */,
@@ -141,7 +143,6 @@
 				792FBB792576981B00367C5E /* ProfileViewController.swift */,
 				790720FA2574271C007626D3 /* LoginViewController.swift */,
 				790720FD2574288C007626D3 /* RegisterViewController.swift */,
-				7954011325796BE300AAD5F9 /* UserLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +182,7 @@
 		7907210C25743F7C007626D3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				79F83823257AD89B00509488 /* Geohash.swift */,
 				7907210025742962007626D3 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */,
+				79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,11 +353,11 @@
 				792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */,
 				790720FB2574271C007626D3 /* LoginViewController.swift in Sources */,
 				792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */,
+				79F83824257AD89B00509488 /* Geohash.swift in Sources */,
 				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
 				7907210525743C8F007626D3 /* Order.swift in Sources */,
 				795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */,
 				795F0B0425752D9800065B8B /* OrderCell.swift in Sources */,
-				7954011425796BE300AAD5F9 /* UserLocationViewController.swift in Sources */,
 				795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */,
 				792FBB802576CFFA00367C5E /* User.swift in Sources */,
 				790720CC2573DB46007626D3 /* RoundedButton.swift in Sources */,
@@ -362,6 +365,7 @@
 				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,
 				790720962573C6B2007626D3 /* AppDelegate.swift in Sources */,
 				795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */,
+				79F837C6257AA9E800509488 /* CLLocationManagerDelegateExtension.swift in Sources */,
 				79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */,
 				7907210825743EF8007626D3 /* FuelType.swift in Sources */,
 				790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */,
@@ -369,7 +373,7 @@
 				7907210125742962007626D3 /* Constants.swift in Sources */,
 				795F0AF82574F8B600065B8B /* PetrolType.swift in Sources */,
 				7947928925794852002BA8FD /* BaseOrderViewController.swift in Sources */,
-				795F0AF42574F12900065B8B /* OrderViewController.swift in Sources */,
+				795F0AF42574F12900065B8B /* NewOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

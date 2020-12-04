@@ -339,7 +339,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XLe-F3-Nxg" kind="show" identifier="toOrder" id="7A5-zW-hhR"/>
+                                    <segue destination="XLe-F3-Nxg" kind="show" identifier="toNewOrder" id="7A5-zW-hhR"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-bw-Mk0" customClass="RoundedView" customModule="fuel_delivery" customModuleProvider="target">
@@ -428,10 +428,10 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="88.392857142857139"/>
         </scene>
-        <!--Order View Controller-->
+        <!--New Order View Controller-->
         <scene sceneID="98R-xx-xnY">
             <objects>
-                <viewController id="XLe-F3-Nxg" customClass="OrderViewController" customModule="fuel_delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XLe-F3-Nxg" customClass="NewOrderViewController" customModule="fuel_delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zvx-Lu-CXh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1515,7 +1515,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="180" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pek-AC-OZI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="180" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pek-AC-OZI">
                                 <rect key="frame" x="0.0" y="90.5" width="375" height="556.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>

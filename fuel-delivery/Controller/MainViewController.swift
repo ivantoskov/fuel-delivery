@@ -9,26 +9,24 @@ import UIKit
 import MapKit
 import Firebase
 
-class MainViewController: UserLocationViewController, MKMapViewDelegate/*, CLLocationManagerDelegate*/ {
+class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var locationLabel: UILabel!
     
+    private var locationManager = CLLocationManager()
+    private var userLocation: CLLocation!
+    
     private var handle: AuthStateDidChangeListenerHandle?
     private var ordersListener: ListenerRegistration!
     private var ordersCollectionRef: CollectionReference!
-    
-    private var userLat = 0.0
-    private var userLon = 0.0
-    private var userLocality = ""
-    private var userCountry = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        determineCurrentLocation()
+        determineCurrentLocation(locationManager: locationManager)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,35 +41,25 @@ class MainViewController: UserLocationViewController, MKMapViewDelegate/*, CLLoc
                 signInVC.modalPresentationStyle = .fullScreen
                 self.present(signInVC, animated: true, completion: nil)
             } else {
-                //self.setListener()
+                //
             }
         })
     }
     
-    /*func setListener() {
-        ordersListener = Firestore.firestore().collection(ORDERS_REF)
-            .whereField(USER_ID, isEqualTo: Auth.auth().currentUser!.uid)
-            .whereField(STATUS, isEqualTo: ORDERED)
-            .addSnapshotListener { (snapshot, error) in
-            if let err = error {
-                debugPrint("Error fetching docs: \(err)")
-            } else {
-                
-            }
-                
-        }
-    } */
-    
-    override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 250, longitudinalMeters: 250)
 
-        mapView.setRegion(region, animated: true)
+        configureMainMap(mapView: mapView, region: region)
         getAddress(fromLocation: userLocation)
-        userLat = userLocation.coordinate.latitude
-        userLon = userLocation.coordinate.longitude
-        mapView.showsUserLocation = true
+        
+        let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 4)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error - locationManager: \(error.localizedDescription)")
     }
     
     func getAddress(fromLocation location: CLLocation) {
@@ -82,37 +70,28 @@ class MainViewController: UserLocationViewController, MKMapViewDelegate/*, CLLoc
                     let placemark = placemarksArray?[0]
                     let address = "\(placemark?.thoroughfare ?? "") \(placemark?.locality ?? "") \(placemark?.subLocality ?? ""), \(placemark?.administrativeArea ?? "") \(placemark?.postalCode ?? "") \(placemark?.country ?? "")"
                     self.locationLabel.text = address
-                    self.userLocality = placemark?.locality ?? "Unknown"
-                    self.userCountry = placemark?.country ?? "Unknown"
                 }
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == TO_ORDER {
-            if let orderViewController = segue.destination as? OrderViewController {
-                orderViewController.userLat = self.userLat
-                orderViewController.userLon = self.userLon
-                orderViewController.userAddress = self.locationLabel.text!
-                orderViewController.userLocality = self.userLocality
-                orderViewController.userCountry = self.userCountry
+        if segue.identifier == TO_NEW_ORDER {
+            if let newOrderViewController = segue.destination as? NewOrderViewController {
+                newOrderViewController.userLocation = self.userLocation
+                newOrderViewController.userAddress = self.locationLabel.text!
             }
         }
         
         if segue.identifier == TO_NEARBY_ORDERS {
             if let nearbyOrdersViewController = segue.destination as? NearbyOrdersViewController {
-                nearbyOrdersViewController.userLat = self.userLat
-                nearbyOrdersViewController.userLon = self.userLon
-                nearbyOrdersViewController.userLocality = self.userLocality
-                nearbyOrdersViewController.userCountry = self.userCountry
+                nearbyOrdersViewController.userLocation = self.userLocation
             }
         }
         
         if segue.identifier == TO_PROFILE {
             if let profileViewController = segue.destination as? ProfileViewController {
-                profileViewController.userLat = self.userLat
-                profileViewController.userLon = self.userLon
+                profileViewController.userLocation = self.userLocation
             }
         }
     }

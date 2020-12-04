@@ -13,6 +13,8 @@ class TakenOrdersViewController: BaseOrderViewController {
     
     var userLat: Double!
     var userLon: Double!
+    
+    var userLocation: CLLocation! // ?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class TakenOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forOrder: orders[indexPath.row], lat: userLat, lon: userLon)
+            cell.configureCell(forOrder: orders[indexPath.row], lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude)
             return cell
         } else {
             return UITableViewCell()

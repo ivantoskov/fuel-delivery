@@ -22,8 +22,7 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     @IBOutlet weak var takeOrderButton: UIButton!
     
     var order: Order!
-    var userLat: Double!
-    var userLon: Double!
+    var userLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +36,11 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
         }
         nameLabel.text = order.displayName.uppercased() + "'S ORDER"
         addressLabel.text = order.address
-        distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: userLat, longitude: userLon), toOrder: order)) + "km from you"
+        distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), toOrder: order)) + "km from you"
         fuelLabel.text = order.fuelType + "(" + order.quality + ")"
         totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
         deliveryTimeLabel.text = order.deliveryDate
-        configureMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
+        configureOrderMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

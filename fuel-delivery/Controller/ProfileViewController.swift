@@ -18,8 +18,7 @@ class ProfileViewController: UIViewController {
     private var usersListener: ListenerRegistration!
     private var handle: AuthStateDidChangeListenerHandle?
     
-    var userLat: Double!
-    var userLon: Double!
+    var userLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +62,7 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_TAKEN_ORDERS {
             if let takenOrdersViewController = segue.destination as? TakenOrdersViewController {
-                takenOrdersViewController.userLat = self.userLat
-                takenOrdersViewController.userLon = self.userLon
+                takenOrdersViewController.userLocation = self.userLocation
             }
         }
     }

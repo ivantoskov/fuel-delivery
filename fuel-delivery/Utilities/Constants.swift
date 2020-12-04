@@ -29,9 +29,10 @@ let STATUS = "status"
 let LOCALITY = "locality"
 let COUNTRY = "country"
 let ACCEPTED_BY_USER = "acceptedByUser"
+let GEO_HASH = "geoHash"
 
 /* Segue identifiers */
-let TO_ORDER = "toOrder"
+let TO_NEW_ORDER = "toNewOrder"
 let TO_NEARBY_ORDERS = "toNearbyOrders"
 let TO_PUBLISHED_ORDER = "toPublishedOrder"
 let TO_MY_ORDERS = "toMyOrders"

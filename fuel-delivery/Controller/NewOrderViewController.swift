@@ -1,5 +1,5 @@
 //
-//  OrderViewController.swift
+//  NewOrderViewController.swift
 //  fuel-delivery
 //
 //  Created by Ivan Toskov on 30/11/2020.
@@ -7,17 +7,18 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
-class OrderViewController: UIViewController {
+class NewOrderViewController: UIViewController {
 
-    @IBOutlet var fuelSegment: UISegmentedControl!
-    @IBOutlet var petrolQualitySegment: UISegmentedControl!
-    @IBOutlet var dieselQualitySegment: UISegmentedControl!
-    @IBOutlet var oilTypeSegment: UISegmentedControl!
-    @IBOutlet var quantitySlider: UISlider!
-    @IBOutlet var totalPriceLabel: UILabel!
-    @IBOutlet var deliveryTimePicker: UIDatePicker!
-    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet weak var fuelSegment: UISegmentedControl!
+    @IBOutlet weak var petrolQualitySegment: UISegmentedControl!
+    @IBOutlet weak var dieselQualitySegment: UISegmentedControl!
+    @IBOutlet weak var oilTypeSegment: UISegmentedControl!
+    @IBOutlet weak var quantitySlider: UISlider!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var deliveryTimePicker: UIDatePicker!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var deliverySegment: UISegmentedControl!
     
@@ -28,11 +29,8 @@ class OrderViewController: UIViewController {
     
     private var deliveryTime = ""
     
-    var userLat: Double!
-    var userLon: Double!
+    var userLocation: CLLocation!
     var userAddress = ""
-    var userLocality = ""
-    var userCountry = ""
     var quantity = 0
     var totalPrice: Float = 0.0
     
@@ -46,6 +44,7 @@ class OrderViewController: UIViewController {
         quantitySlider.value = 10.0
         quantity = 10
         quantityLabel.text = "10 litres"
+        totalPrice = 19.7
         deliveryTime = formatDate(date: Date())
     }
     
@@ -158,21 +157,22 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func completeOrderPressed(_ sender: Any) {
+        // 4 symbols are equal to a radius of ±20km
+        let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 4)
         Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
             FUEL_TYPE: selectedFuel,
             FUEL_QUALITY: selectedType(fuel: selectedFuel),
             DATE_ORDERED: formatDate(date: Date()),
             DISPLAY_NAME: Auth.auth().currentUser?.displayName ?? "",
             USER_ID: Auth.auth().currentUser?.uid ?? "",
-            LATITUDE: userLat ?? 0.0,
-            LONGITUDE: userLon ?? 0.0,
+            LATITUDE: userLocation.coordinate.latitude,
+            LONGITUDE: userLocation.coordinate.longitude,
             ADDRESS: userAddress,
             DELIVERY_TIME: deliveryTime,
             QUANTITY: quantity,
             TOTAL_PRICE: totalPrice,
-            LOCALITY: userLocality,
-            COUNTRY: userCountry,
-            STATUS: ORDERED
+            STATUS: ORDERED,
+            GEO_HASH: hash
         ]) { (err) in
             if let err = err {
                 debugPrint("Error adding document: \(err.localizedDescription)")

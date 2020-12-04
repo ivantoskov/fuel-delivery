@@ -19,14 +19,16 @@ class BaseOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureTableView(tableView: tableView)
+        ordersCollectionRef = Firestore.firestore().collection(ORDERS_REF)
+    }
+    
+    func configureTableView(tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
         
-        /* Dynamicly resizing UITableViewCell */
         tableView.estimatedRowHeight = 180
         tableView.rowHeight = UITableView.automaticDimension
-        ordersCollectionRef = Firestore.firestore().collection(ORDERS_REF)
     }
     
     override func viewWillAppear(_ animated: Bool) {
