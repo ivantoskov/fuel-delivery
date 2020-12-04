@@ -35,6 +35,7 @@
 		795F0B0425752D9800065B8B /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0325752D9800065B8B /* OrderCell.swift */; };
 		795F0B0725755B3000065B8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0625755B3000065B8B /* CircleView.swift */; };
 		795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */; };
+		7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */; };
 		79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A225781DCE00134251 /* TakenOrdersViewController.swift */; };
 		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		795F0B0325752D9800065B8B /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		795F0B0625755B3000065B8B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedOrderViewController.swift; sourceTree = "<group>"; };
+		7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		79C279A225781DCE00134251 /* TakenOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrdersViewController.swift; sourceTree = "<group>"; };
 		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fuel_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 		790720942573C6B2007626D3 /* fuel-delivery */ = {
 			isa = PBXGroup;
 			children = (
+				7992FF3D257A8541009A6DDC /* Extensions */,
 				7907210C25743F7C007626D3 /* Utilities */,
 				7907210A25743F00007626D3 /* Enums */,
 				790720C62573D955007626D3 /* Model */,
@@ -181,6 +184,14 @@
 				7907210025742962007626D3 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7992FF3D257A8541009A6DDC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C0D2B2D456ECC1C44F9CE906 /* Frameworks */ = {
@@ -333,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */,
 				795F0B0725755B3000065B8B /* CircleView.swift in Sources */,
 				795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */,
 				792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */,

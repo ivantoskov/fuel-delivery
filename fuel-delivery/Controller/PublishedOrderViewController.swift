@@ -22,6 +22,8 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     @IBOutlet weak var takeOrderButton: UIButton!
     
     var order: Order!
+    var userLat: Double!
+    var userLon: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,45 +37,15 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
         }
         nameLabel.text = order.displayName.uppercased() + "'S ORDER"
         addressLabel.text = order.address
+        distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: userLat, longitude: userLon), toOrder: order)) + "km from you"
         fuelLabel.text = order.fuelType + "(" + order.quality + ")"
         totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
         deliveryTimeLabel.text = order.deliveryDate
-        configureMap(lan: order.latitude, lon: order.longitude)
-    }
-    
-    func configureMap(lan: Double, lon: Double) {
-        if let mapView = self.mapView {
-            mapView.delegate = self
-        }
-        let orgLocation = CLLocationCoordinate2DMake(lan, lon)
-
-        let dropPin = MKPointAnnotation()
-        dropPin.coordinate = orgLocation
-        mapView!.addAnnotation(dropPin)
-
-        self.mapView?.setRegion(MKCoordinateRegion(center: orgLocation, latitudinalMeters: 250, longitudinalMeters: 250), animated: true)
-        
-        mapView.layer.cornerRadius = 10.0
+        configureMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "CustomPin")
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomPin")
-            annotationView?.canShowCallout = false
-        } else {
-            annotationView?.annotation = annotation
-        }
-        let pinImage = UIImage(named: "gas-pin")
-        let size = CGSize(width: 50, height: 50)
-        UIGraphicsBeginImageContext(size)
-        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        annotationView?.image = resizedImage
-        return annotationView
+        dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 50)
     }
     
     @IBAction func takeOrderPressed(_ sender: Any) {

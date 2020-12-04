@@ -52,6 +52,8 @@ class NearbyOrdersViewController: BaseOrderViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_PUBLISHED_ORDER {
             if let publishedOrderViewController = segue.destination as? PublishedOrderViewController {
+                publishedOrderViewController.userLat = self.userLat
+                publishedOrderViewController.userLon = self.userLon
                 publishedOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
                 tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             }
