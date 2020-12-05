@@ -11,9 +11,6 @@ import MapKit
 
 class TakenOrdersViewController: BaseOrderViewController {
     
-    var userLat: Double!
-    var userLon: Double!
-    
     var userLocation: CLLocation! // ?
 
     override func viewDidLoad() {
@@ -40,7 +37,7 @@ class TakenOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forOrder: orders[indexPath.row], lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude)
+            cell.configureCell(forOrder: orders[indexPath.row], userLocation: userLocation)
             return cell
         } else {
             return UITableViewCell()

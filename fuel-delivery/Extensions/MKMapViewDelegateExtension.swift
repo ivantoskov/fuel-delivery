@@ -56,9 +56,36 @@ extension MKMapViewDelegate {
         return annotationView
     }
     
-    func getDistance(fromLocation userLocation: CLLocation, toOrder order: Order) -> Double {
-        let orderLocation = CLLocation(latitude: order.latitude, longitude: order.longitude)
-        let distance: CLLocationDistance = userLocation.distance(from: orderLocation)
-        return distance / 1000.0
+    func calculateDistancefrom(sourceLocation: MKMapItem, destinationLocation: MKMapItem, doneSearching: @escaping (_ expectedTravelTim: TimeInterval) -> Void) {
+
+        let request: MKDirections.Request = MKDirections.Request()
+
+            request.source = sourceLocation
+            request.destination = destinationLocation
+            request.requestsAlternateRoutes = true
+            request.transportType = .automobile
+
+            let directions = MKDirections(request: request)
+            directions.calculate { (directions, error) in
+
+                if var routeResponse = directions?.routes {
+                    routeResponse.sort(by: {$0.expectedTravelTime <
+                        $1.expectedTravelTime})
+                    let quickestRouteForSegment: MKRoute = routeResponse[0]
+
+                    doneSearching(quickestRouteForSegment.distance)
+
+                }
+            }
     }
+    
+    func getDistance(userLocation: CLLocation, order: Order, completionHandler: @escaping (_ distance: Double) -> Void) {
+
+        let destinationItem =  MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2DMake(order.latitude, order.longitude)))
+            let currentLocation = userLocation
+            let sourceItem =  MKMapItem(placemark: MKPlacemark(coordinate: currentLocation.coordinate))
+                self.calculateDistancefrom(sourceLocation: sourceItem, destinationLocation: destinationItem, doneSearching: { distance in
+                    completionHandler(distance / 1000)
+                })
+        }
 }

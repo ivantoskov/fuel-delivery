@@ -34,13 +34,15 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         return dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 40)
     }
     
-    func configureCell(forOrder order: Order, lat: Double, lon: Double) {
+    func configureCell(forOrder order: Order, userLocation: CLLocation) {
         self.order = order
         nameLabel.text = "Name: " + order.displayName
         fuelLabel.text = "Fuel: " + order.fuelType + " (" + order.quality + ")"
         quantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
         dateLabel.text = "Ending: " + order.deliveryDate
-        distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: lat, longitude: lon), toOrder: order)) + "km from you"
+        getDistance(userLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), order: order) { (distance) in
+            self.distanceLabel.text = String(format: "%.1f", distance) + "km from you"
+        }
         configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
         
     }
