@@ -157,8 +157,8 @@ class NewOrderViewController: UIViewController {
     }
     
     @IBAction func completeOrderPressed(_ sender: Any) {
-        // 4 symbols are equal to a radius of ±20km
-        let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 4)
+        // 4 symbols are equal to a radius of ±78km
+        let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 3)
         Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
             FUEL_TYPE: selectedFuel,
             FUEL_QUALITY: selectedType(fuel: selectedFuel),

@@ -41,7 +41,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         quantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
         dateLabel.text = "Ending: " + order.deliveryDate
         distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: lat, longitude: lon), toOrder: order)) + "km from you"
-        configureOrderMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
+        configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
         
     }
     
@@ -51,7 +51,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         quantityLabel.text = "Quantity: " + String(order.quantity) + " litres"
         dateOrderedLabel.text = "Ordered on: " + order.dateOrdered
         statusLabel.text = "Status: " + order.status
-        configureOrderMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
+        configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
     }
 }
 

@@ -14,7 +14,7 @@ class NearbyOrdersViewController: BaseOrderViewController {
     var userLocation: CLLocation!
         
     override func setListener() {
-        let userHash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 4)
+        let userHash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 3)
         ordersListener = ordersCollectionRef
             .whereField(STATUS, isEqualTo: ORDERED)
             .whereField(GEO_HASH, isEqualTo: userHash)

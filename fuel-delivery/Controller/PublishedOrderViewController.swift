@@ -37,10 +37,10 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
         nameLabel.text = order.displayName.uppercased() + "'S ORDER"
         addressLabel.text = order.address
         distanceLabel.text = String(format: "%.1f", getDistance(fromLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), toOrder: order)) + "km from you"
-        fuelLabel.text = order.fuelType + "(" + order.quality + ")"
+        fuelLabel.text = order.fuelType + " (" + order.quality + ")"
         totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
         deliveryTimeLabel.text = order.deliveryDate
-        configureOrderMap(mapView: mapView, lat: order.latitude, lon: order.longitude)
+        configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

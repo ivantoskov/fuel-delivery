@@ -25,8 +25,9 @@ class Order {
     private(set) var locality: String!
     private(set) var country: String!
     private(set) var status: String!
+    private(set) var acceptedBy: String!
     
-    init(displayName: String, dateOrdered: String, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double, locality: String, country: String, status: String) {
+    init(displayName: String, dateOrdered: String, userId: String, fuelType: String, quality: String, quantity: Int, deliveryDate: String, documentId: String, latitude: Double, longitude: Double, address: String, totalCost: Double, locality: String, country: String, status: String, acceptedBy: String) {
         self.displayName = displayName
         self.dateOrdered = dateOrdered
         self.userId = userId
@@ -42,6 +43,7 @@ class Order {
         self.locality = locality
         self.country = country
         self.status = status
+        self.acceptedBy = acceptedBy
     }
     
     class func parseData(snapshot: QuerySnapshot?) -> [Order] {
@@ -64,7 +66,8 @@ class Order {
                 let locality = data[LOCALITY] as? String ?? ""
                 let country = data[COUNTRY] as? String ?? ""
                 let status = data[STATUS] as? String ?? ""
-                let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost, locality: locality, country: country, status: status)
+                let acceptedBy = data[ACCEPTED_BY_USER] as? String ?? "Nobody"
+                let newOrder = Order(displayName: displayName, dateOrdered: dateOrdered, userId: userId, fuelType: fuelType, quality: quality, quantity: quantity, deliveryDate: deliveryDate, documentId: documentId, latitude: latitude, longitude: longitude, address: address, totalCost: totalCost, locality: locality, country: country, status: status, acceptedBy: acceptedBy)
                 orders.append(newOrder)
         }
         return orders

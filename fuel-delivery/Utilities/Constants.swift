@@ -38,6 +38,7 @@ let TO_PUBLISHED_ORDER = "toPublishedOrder"
 let TO_MY_ORDERS = "toMyOrders"
 let TO_PROFILE = "toProfile"
 let TO_TAKEN_ORDERS = "toTakenOrders"
+let TO_MY_ORDER_DETAILS = "toMyOrderDetails"
 
 /* Storyboard identifiers */
 let MAIN = "Main"

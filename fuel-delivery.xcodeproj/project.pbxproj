@@ -22,6 +22,7 @@
 		7907210125742962007626D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210025742962007626D3 /* Constants.swift */; };
 		7907210525743C8F007626D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210425743C8F007626D3 /* Order.swift */; };
 		7907210825743EF8007626D3 /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907210725743EF8007626D3 /* FuelType.swift */; };
+		7914CB8B257BBC3200FD7367 /* MyOrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7914CB8A257BBC3200FD7367 /* MyOrderDetailsViewController.swift */; };
 		792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB792576981B00367C5E /* ProfileViewController.swift */; };
 		792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */; };
 		792FBB802576CFFA00367C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792FBB7F2576CFFA00367C5E /* User.swift */; };
@@ -60,6 +61,7 @@
 		7907210025742962007626D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7907210425743C8F007626D3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		7907210725743EF8007626D3 /* FuelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		7914CB8A257BBC3200FD7367 /* MyOrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsViewController.swift; sourceTree = "<group>"; };
 		792FBB792576981B00367C5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		792FBB7C2576C97600367C5E /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
 		792FBB7F2576CFFA00367C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				792FBB792576981B00367C5E /* ProfileViewController.swift */,
 				790720FA2574271C007626D3 /* LoginViewController.swift */,
 				790720FD2574288C007626D3 /* RegisterViewController.swift */,
+				7914CB8A257BBC3200FD7367 /* MyOrderDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7914CB8B257BBC3200FD7367 /* MyOrderDetailsViewController.swift in Sources */,
 				7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */,
 				795F0B0725755B3000065B8B /* CircleView.swift in Sources */,
 				795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */,

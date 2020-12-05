@@ -38,6 +38,16 @@ class MyOrdersViewController: BaseOrderViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: TO_MY_ORDER_DETAILS, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_MY_ORDER_DETAILS {
+            if let myOrderDetailsViewController = segue.destination as? MyOrderDetailsViewController {
+                myOrderDetailsViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
+                tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+            }
+        }
+
     }
 }

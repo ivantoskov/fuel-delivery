@@ -28,11 +28,10 @@ class User {
         
             let displayName = snap.get(DISPLAY_NAME) as? String ?? ""
             let email = snap.get(EMAIL) as? String ?? ""
-            let userId = snap.get(USER_ID) as? String ?? ""
+            let userId = snap.documentID
             let dateCreated = snap.get(DATE_CREATED) as? Date ?? Date()
 
         user = User(displayName: displayName, email: email, userId: userId, dateCreated: dateCreated)
         return user
     }
-    
 }

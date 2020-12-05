@@ -10,9 +10,9 @@ import MapKit
 
 extension MKMapViewDelegate {
     
-    func configureOrderMap(mapView: MKMapView, lat: Double, lon: Double) {
+    func configureOrderMap(mapView: MKMapView, location: CLLocation) {
         mapView.delegate = self
-        let orgLocation = CLLocationCoordinate2DMake(lat, lon)
+        let orgLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = orgLocation
         mapView.addAnnotation(dropPin)
@@ -20,8 +20,19 @@ extension MKMapViewDelegate {
         mapView.layer.cornerRadius = 10.0
     }
     
-    func configureMainMap(mapView: MKMapView, region: MKCoordinateRegion) {
-        mapView.setRegion(region, animated: true)
+    func configureMainMap(mapView: MKMapView, location: CLLocation, nearbyOrders: [Order]) {
+        mapView.delegate = self
+        if nearbyOrders.count > 0 {
+            for order in nearbyOrders {
+                let dropPin = MKPointAnnotation()
+                dropPin.coordinate = CLLocationCoordinate2D(latitude: order.latitude, longitude: order.longitude)
+                dropPin.title = "\(order.fuelType!) (\(order.quality!))"
+                dropPin.subtitle = "\(order.quantity!) litres"
+                mapView.addAnnotation(dropPin)
+            }
+        }
+        let orgLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        mapView.setRegion(MKCoordinateRegion(center: orgLocation, latitudinalMeters: 1000, longitudinalMeters: 1000), animated: true)
         mapView.showsUserLocation = true
     }
     
@@ -32,7 +43,7 @@ extension MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "CustomPin")
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomPin")
-            annotationView?.canShowCallout = false
+            annotationView?.canShowCallout = true
         } else {
             annotationView?.annotation = annotation
         }
