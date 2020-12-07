@@ -47,4 +47,14 @@ class MyOrderDetailsViewController: PublishedOrderViewController {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_SCAN_QR {
+            if let scanViewController = segue.destination as? QRScannerViewController {
+                scanViewController.order = self.order
+            }
+        }
+    }
+    
+    
 }

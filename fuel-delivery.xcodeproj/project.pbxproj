@@ -35,6 +35,8 @@
 		795F0B0425752D9800065B8B /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0325752D9800065B8B /* OrderCell.swift */; };
 		795F0B0725755B3000065B8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0625755B3000065B8B /* CircleView.swift */; };
 		795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */; };
+		798529D9257E869C002BD4CA /* TakenOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798529D8257E869C002BD4CA /* TakenOrderViewController.swift */; };
+		798529DC257E89E6002BD4CA /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798529DB257E89E6002BD4CA /* QRScannerViewController.swift */; };
 		7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */; };
 		79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A225781DCE00134251 /* TakenOrdersViewController.swift */; };
 		79F837C6257AA9E800509488 /* CLLocationManagerDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */; };
@@ -74,6 +76,8 @@
 		795F0B0325752D9800065B8B /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		795F0B0625755B3000065B8B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		795F0B0E2575908B00065B8B /* PublishedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedOrderViewController.swift; sourceTree = "<group>"; };
+		798529D8257E869C002BD4CA /* TakenOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrderViewController.swift; sourceTree = "<group>"; };
+		798529DB257E89E6002BD4CA /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		79C279A225781DCE00134251 /* TakenOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrdersViewController.swift; sourceTree = "<group>"; };
 		79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateExtension.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				790720FA2574271C007626D3 /* LoginViewController.swift */,
 				790720FD2574288C007626D3 /* RegisterViewController.swift */,
 				7914CB8A257BBC3200FD7367 /* MyOrderDetailsViewController.swift */,
+				798529D8257E869C002BD4CA /* TakenOrderViewController.swift */,
+				798529DB257E89E6002BD4CA /* QRScannerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				79F83824257AD89B00509488 /* Geohash.swift in Sources */,
 				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
 				7907210525743C8F007626D3 /* Order.swift in Sources */,
+				798529D9257E869C002BD4CA /* TakenOrderViewController.swift in Sources */,
 				795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */,
 				795F0B0425752D9800065B8B /* OrderCell.swift in Sources */,
 				795F0AFB2574F8C200065B8B /* DieselType.swift in Sources */,
@@ -369,6 +376,7 @@
 				7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */,
 				790720962573C6B2007626D3 /* AppDelegate.swift in Sources */,
 				795F0B0F2575908B00065B8B /* PublishedOrderViewController.swift in Sources */,
+				798529DC257E89E6002BD4CA /* QRScannerViewController.swift in Sources */,
 				79F837C6257AA9E800509488 /* CLLocationManagerDelegateExtension.swift in Sources */,
 				79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */,
 				7907210825743EF8007626D3 /* FuelType.swift in Sources */,

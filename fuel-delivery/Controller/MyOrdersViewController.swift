@@ -48,6 +48,5 @@ class MyOrdersViewController: BaseOrderViewController {
                 tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             }
         }
-
     }
 }

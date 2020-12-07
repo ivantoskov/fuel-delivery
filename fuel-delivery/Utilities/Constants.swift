@@ -40,6 +40,8 @@ let TO_MY_ORDERS = "toMyOrders"
 let TO_PROFILE = "toProfile"
 let TO_TAKEN_ORDERS = "toTakenOrders"
 let TO_MY_ORDER_DETAILS = "toMyOrderDetails"
+let TO_TAKEN_ORDER = "toTakenOrder"
+let TO_SCAN_QR = "toScanQR"
 
 /* Storyboard identifiers */
 let MAIN = "Main"
@@ -53,3 +55,4 @@ let ORDER_CELL = "orderCell"
 /* Order status */
 let ORDERED = "Ordered"
 let ACCEPTED = "Accepted"
+let DELIVERED = "Delivered"

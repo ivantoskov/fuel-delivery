@@ -191,6 +191,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
+  - QRCode (2.0)
   - SCLAlertView (0.8)
   - SDWebImage (5.10.0):
     - SDWebImage/Core (= 5.10.0)
@@ -203,6 +204,7 @@ DEPENDENCIES:
   - FirebaseUI
   - FirebaseUI/Google
   - IQKeyboardManagerSwift
+  - QRCode
   - SCLAlertView
 
 SPEC REPOS:
@@ -236,6 +238,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - QRCode
     - SCLAlertView
     - SDWebImage
 
@@ -269,9 +272,10 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: b8ba50360c55de6a7aff9f5f5dea52627e2533da
+PODFILE CHECKSUM: 46f4f086d25b4db6c06dca5c6dd7773b9e4c2cd0
 
 COCOAPODS: 1.9.3

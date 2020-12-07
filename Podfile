@@ -15,5 +15,6 @@ target 'fuel-delivery' do
   
   pod 'IQKeyboardManagerSwift'
   pod 'SCLAlertView'
+  pod "QRCode"
   
 end

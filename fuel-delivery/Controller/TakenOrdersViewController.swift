@@ -45,6 +45,17 @@ class TakenOrdersViewController: BaseOrderViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: TO_TAKEN_ORDER, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_TAKEN_ORDER {
+            if let takenOrderViewController = segue.destination as? TakenOrderViewController {
+                takenOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
+                takenOrderViewController.userLocation = self.userLocation
+                tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+            }
+        }
+
     }
 }
