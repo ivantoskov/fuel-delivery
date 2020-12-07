@@ -30,6 +30,7 @@ let LOCALITY = "locality"
 let COUNTRY = "country"
 let ACCEPTED_BY_USER = "acceptedByUser"
 let GEO_HASH = "geoHash"
+let RATING = "rating"
 
 /* Segue identifiers */
 let TO_NEW_ORDER = "toNewOrder"

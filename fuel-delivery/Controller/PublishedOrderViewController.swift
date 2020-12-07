@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import Firebase
+import SCLAlertView
 
 class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
 
@@ -37,7 +38,7 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
         nameLabel.text = order.displayName.uppercased() + "'S ORDER"
         addressLabel.text = order.address
         getDistance(userLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), order: order) { (distance) in
-            self.distanceLabel.text = String(format: "%.1f", distance) + "km from you"
+            self.distanceLabel.text = String(format: "%.1f", distance) + "km"
         }
 
         fuelLabel.text = order.fuelType + " (" + order.quality + ")"
@@ -50,18 +51,25 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
         dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 50)
     }
     
-    @IBAction func takeOrderPressed(_ sender: Any) {
-
-            Firestore.firestore().collection(ORDERS_REF).document(order.documentId)
-                .updateData([
-                    STATUS: ACCEPTED,
-                    ACCEPTED_BY_USER: Auth.auth().currentUser!.uid])
-                { (error) in
-                    if let error = error {
-                        debugPrint("Unable to update data: \(error.localizedDescription)")
-                    } else {
-                        self.dismiss(animated: true, completion: nil)
-                    }
+    func takeOrder() {
+        Firestore.firestore().collection(ORDERS_REF).document(order.documentId)
+            .updateData([
+                STATUS: ACCEPTED,
+                ACCEPTED_BY_USER: Auth.auth().currentUser!.uid])
+            { (error) in
+                if let error = error {
+                    debugPrint("Unable to update data: \(error.localizedDescription)")
+                } else {
+                    self.dismiss(animated: true, completion: nil)
                 }
+            }
+    }
+    
+    @IBAction func takeOrderPressed(_ sender: Any) {
+        let alertView = SCLAlertView()
+        alertView.addButton("Take") {
+            self.takeOrder()
+        }
+        alertView.showSuccess("Take Order?", subTitle: "Are you sure that you want to take this order?", closeButtonTitle: "Cancel" , timeout: nil, colorStyle: SCLAlertViewStyle.success.defaultColorInt, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
         }
 }

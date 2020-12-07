@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import MapKit
+import SCLAlertView
 
 class ProfileViewController: UIViewController {
 
@@ -45,7 +46,7 @@ class ProfileViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func signOutPressed(_ sender: Any) {
+    func signOut() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -57,6 +58,15 @@ class ProfileViewController: UIViewController {
         let loginVC = storyboard.instantiateViewController(withIdentifier: SIGN_IN_VC)
         loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func signOutPressed(_ sender: Any) {
+        let alertView = SCLAlertView()
+        alertView.addButton("Confirm") {
+            self.signOut()
+        }
+        alertView.showWarning("Sign out?", subTitle: "", closeButtonTitle: "Cancel" , timeout: nil, colorStyle: SCLAlertViewStyle.warning.defaultColorInt, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

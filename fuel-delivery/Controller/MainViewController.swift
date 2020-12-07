@@ -25,6 +25,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,7 +66,9 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
-        getAddress(fromLocation: userLocation)
+        getAddress(fromLocation: userLocation) { (address) in
+            self.locationLabel.text = address
+        }
         self.setListener()
         
     }
@@ -78,31 +81,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         print("Error - locationManager: \(error.localizedDescription)")
     }
     
-    func getAddress(fromLocation location: CLLocation) {
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { (placemarksArray, error) in
-            if (error) == nil {
-                if placemarksArray!.count > 0 {
-                    let placemark = placemarksArray?[0]
-                    let thoroughfare = placemark?.thoroughfare ?? ""
-                    let locality = placemark?.locality ?? ""
-                    let subLocality = placemark?.subLocality ?? ""
-                    let administrativeArea = placemark?.administrativeArea ?? ""
-                    let postalCode = placemark?.postalCode ?? ""
-                    let country = placemark?.country ?? ""
-                    let addressArray = [thoroughfare, locality, subLocality, administrativeArea, postalCode, country]
-                    var addressStr = ""
-                    for str in addressArray {
-                        if (str != "") {
-                            addressStr += "\(str), "
-                        }
-                    }
-                    self.locationLabel.text = addressStr
-                }
-            }
-        }
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_NEW_ORDER {
             if let newOrderViewController = segue.destination as? NewOrderViewController {

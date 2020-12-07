@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import SCLAlertView
 
 class NewOrderViewController: UIViewController {
 
@@ -156,8 +157,8 @@ class NewOrderViewController: UIViewController {
         }
     }
     
-    @IBAction func completeOrderPressed(_ sender: Any) {
-        // 4 symbols are equal to a radius of ±78km
+    func sendOrder() {
+        // 3 symbols are equal to a radius of ±78km
         let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 3)
         Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
             FUEL_TYPE: selectedFuel,
@@ -180,6 +181,14 @@ class NewOrderViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func completeOrderPressed(_ sender: Any) {
+        let alertView = SCLAlertView()
+        alertView.addButton("Confirm") {
+            self.sendOrder()
+        }
+        alertView.showSuccess("Confirm Order?", subTitle: "", closeButtonTitle: "Cancel" , timeout: nil, colorStyle: SCLAlertViewStyle.success.defaultColorInt, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
     }
     
     @IBAction func closePressed(_ sender: Any) {

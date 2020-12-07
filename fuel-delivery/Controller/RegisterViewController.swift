@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class RegisterViewController: UIViewController {
 
@@ -19,6 +20,11 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    func showAlert(error: String) {
+        let alert = SCLAlertView()
+        alert.showError("Error", subTitle: "\(error)")
+    }
+    
     @IBAction func signUpPressed(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
@@ -27,13 +33,13 @@ class RegisterViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                debugPrint("Error creating user: \(error.localizedDescription)")
+                self.showAlert(error: error.localizedDescription)
             }
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = "\(firstName) \(lastName)"
             changeRequest?.commitChanges(completion: { (error) in
                 if let error = error {
-                    debugPrint(error.localizedDescription)
+                    self.showAlert(error: error.localizedDescription)
                 }
             })
             guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -43,7 +49,7 @@ class RegisterViewController: UIViewController {
                 DATE_CREATED: FieldValue.serverTimestamp()
                 ], completion: { (error) in
                     if let error = error {
-                        debugPrint(error.localizedDescription)
+                        self.showAlert(error: error.localizedDescription)
                     } else {
                         self.dismiss(animated: true, completion: nil)
                     }

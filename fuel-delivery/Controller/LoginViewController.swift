@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class LoginViewController: UIViewController {
     
@@ -17,13 +18,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    func showAlert(error: String) {
+        let alert = SCLAlertView()
+        alert.showError("Error", subTitle: "\(error)")
+    }
+    
     @IBAction func signInPressed(_ sender: Any) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                debugPrint(error.localizedDescription)
+                self.showAlert(error: error.localizedDescription)
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
