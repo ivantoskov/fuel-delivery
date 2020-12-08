@@ -39,6 +39,7 @@
 		798529DC257E89E6002BD4CA /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798529DB257E89E6002BD4CA /* QRScannerViewController.swift */; };
 		7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */; };
 		79C279A325781DCF00134251 /* TakenOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C279A225781DCE00134251 /* TakenOrdersViewController.swift */; };
+		79EEF197257FBB3B0045B8E0 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EEF196257FBB3B0045B8E0 /* DirectionsViewController.swift */; };
 		79F837C6257AA9E800509488 /* CLLocationManagerDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */; };
 		79F83824257AD89B00509488 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F83823257AD89B00509488 /* Geohash.swift */; };
 		A57D1FCFD37DB0555404C5EC /* Pods_fuel_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55DD284585D0A22F1C9BFF4 /* Pods_fuel_delivery.framework */; };
@@ -80,6 +81,7 @@
 		798529DB257E89E6002BD4CA /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		7992FF3E257A855C009A6DDC /* MKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		79C279A225781DCE00134251 /* TakenOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenOrdersViewController.swift; sourceTree = "<group>"; };
+		79EEF196257FBB3B0045B8E0 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		79F837C5257AA9E800509488 /* CLLocationManagerDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateExtension.swift; sourceTree = "<group>"; };
 		79F83823257AD89B00509488 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		AC4C5283FDF010072BEFF8DE /* Pods-fuel-delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.debug.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7914CB8A257BBC3200FD7367 /* MyOrderDetailsViewController.swift */,
 				798529D8257E869C002BD4CA /* TakenOrderViewController.swift */,
 				798529DB257E89E6002BD4CA /* QRScannerViewController.swift */,
+				79EEF196257FBB3B0045B8E0 /* DirectionsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				792FBB7D2576C97600367C5E /* MyOrdersViewController.swift in Sources */,
 				79F83824257AD89B00509488 /* Geohash.swift in Sources */,
 				790720C82573D973007626D3 /* RoundedView.swift in Sources */,
+				79EEF197257FBB3B0045B8E0 /* DirectionsViewController.swift in Sources */,
 				7907210525743C8F007626D3 /* Order.swift in Sources */,
 				798529D9257E869C002BD4CA /* TakenOrderViewController.swift in Sources */,
 				795F0B0125752CDA00065B8B /* NearbyOrdersViewController.swift in Sources */,

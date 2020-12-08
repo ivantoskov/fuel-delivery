@@ -42,6 +42,7 @@ let TO_TAKEN_ORDERS = "toTakenOrders"
 let TO_MY_ORDER_DETAILS = "toMyOrderDetails"
 let TO_TAKEN_ORDER = "toTakenOrder"
 let TO_SCAN_QR = "toScanQR"
+let TO_DIRECTONS = "toDirections"
 
 /* Storyboard identifiers */
 let MAIN = "Main"

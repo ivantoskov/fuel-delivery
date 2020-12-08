@@ -25,7 +25,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +73,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 50)
+        dropPin(mapView: mapView, annotation: annotation, imageName: "pin", pinSize: 50)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

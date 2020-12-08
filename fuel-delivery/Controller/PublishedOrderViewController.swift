@@ -28,27 +28,22 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI(order: order)
-    }
-    
-    func setUpUI(order: Order) {
-        if (order.userId == Auth.auth().currentUser!.uid) {
-            takeOrderButton.isHidden = true
-            print ("That's your order!")
-        }
-        nameLabel.text = order.displayName.uppercased() + "'S ORDER"
-        addressLabel.text = order.address
         getDistance(userLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), order: order) { (distance) in
             self.distanceLabel.text = String(format: "%.1f", distance) + "km"
         }
-
-        fuelLabel.text = order.fuelType + " (" + order.quality + ")"
-        totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
-        deliveryTimeLabel.text = order.deliveryDate
         configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
     }
     
+    func setUpUI(order: Order) {
+        nameLabel.text = order.displayName.uppercased() + "'S ORDER"
+        addressLabel.text = order.address
+        fuelLabel.text = order.fuelType + " (" + order.quality + ")"
+        totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
+        deliveryTimeLabel.text = order.deliveryDate
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 50)
+        dropPin(mapView: mapView, annotation: annotation, imageName: "pin", pinSize: 50)
     }
     
     func takeOrder() {

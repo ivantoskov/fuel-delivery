@@ -31,7 +31,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return dropPin(mapView: mapView, annotation: annotation, imageName: "gas-pin", pinSize: 40)
+        return dropPin(mapView: mapView, annotation: annotation, imageName: "pin", pinSize: 40)
     }
     
     func configureCell(forOrder order: Order, userLocation: CLLocation) {
@@ -43,6 +43,7 @@ class OrderCell: UITableViewCell, MKMapViewDelegate {
         getDistance(userLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), order: order) { (distance) in
             self.distanceLabel.text = String(format: "%.1f", distance) + "km from you"
         }
+        statusLabel?.text = "Status: " + order.status
         configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
         
     }

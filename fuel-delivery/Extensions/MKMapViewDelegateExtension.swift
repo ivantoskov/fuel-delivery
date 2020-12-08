@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import Firebase
 
 extension MKMapViewDelegate {
     
@@ -24,16 +25,27 @@ extension MKMapViewDelegate {
         mapView.delegate = self
         if nearbyOrders.count > 0 {
             for order in nearbyOrders {
-                let dropPin = MKPointAnnotation()
-                dropPin.coordinate = CLLocationCoordinate2D(latitude: order.latitude, longitude: order.longitude)
-                dropPin.title = "\(order.fuelType!) (\(order.quality!))"
-                dropPin.subtitle = "\(order.quantity!) litres"
-                mapView.addAnnotation(dropPin)
+                if (order.userId != Auth.auth().currentUser!.uid && order.status == ORDERED) {
+                    let dropPin = MKPointAnnotation()
+                    dropPin.coordinate = CLLocationCoordinate2D(latitude: order.latitude, longitude: order.longitude)
+                    dropPin.title = "\(order.fuelType!) (\(order.quality!))"
+                    dropPin.subtitle = "\(order.quantity!) litres"
+                    mapView.addAnnotation(dropPin)
+                }
             }
         }
         let orgLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         mapView.setRegion(MKCoordinateRegion(center: orgLocation, latitudinalMeters: 1000, longitudinalMeters: 1000), animated: true)
         mapView.showsUserLocation = true
+    }
+    
+    func configureDirectionsMap(mapView: MKMapView, userLocation: CLLocation, order: Order) {
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        getDirections(mapView: mapView, fromLocation: userLocation, toOrder: order)
+        let dropPin = MKPointAnnotation()
+        dropPin.coordinate = CLLocationCoordinate2D(latitude: order.latitude, longitude: order.longitude)
+        mapView.addAnnotation(dropPin)
     }
     
     func dropPin(mapView: MKMapView, annotation: MKAnnotation, imageName: String, pinSize: Double) -> MKAnnotationView? {
@@ -88,4 +100,23 @@ extension MKMapViewDelegate {
                     completionHandler(distance / 1000)
                 })
         }
+    
+    func getDirections(mapView: MKMapView, fromLocation userLoc: CLLocation, toOrder order: Order) {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLoc.coordinate.latitude, longitude: userLoc.coordinate.longitude), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: order.latitude, longitude: order.longitude), addressDictionary: nil))
+        
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+        let directions = MKDirections(request: request)
+
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+
+            for route in unwrappedResponse.routes {
+                mapView.addOverlay(route.polyline)
+                mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+    }
 }

@@ -25,6 +25,12 @@ class NearbyOrdersViewController: BaseOrderViewController {
             } else {
                 self.orders.removeAll()
                 self.orders = Order.parseData(snapshot: snapshot)
+                var allOrders = self.orders
+                for i in 0..<allOrders.count  {
+                    if (allOrders[i].userId == Auth.auth().currentUser!.uid) {
+                        self.orders.remove(at: i)
+                    }
+                }
                 self.tableView.reloadData()
             }
         }

@@ -23,7 +23,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         usersCollectionRef = Firestore.firestore().collection(USERS_REF)
         setListener()
     }
