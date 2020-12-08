@@ -11,13 +11,19 @@ import Firebase
 
 class MyOrderDetailsViewController: PublishedOrderViewController {
     
-    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var acceptedByLabel: UILabel!
+    @IBOutlet weak var orderedView: CircleView!
+    @IBOutlet weak var orderedLabel: UILabel!
+    @IBOutlet weak var acceptedView: CircleView!
+    @IBOutlet weak var acceptedLabel: UILabel!
+    @IBOutlet weak var lineView: UIView!
+    @IBOutlet weak var deliveredView: CircleView!
+    @IBOutlet weak var deliveredLabel: UILabel!
+    @IBOutlet weak var qrButton: RoundedButton!
     
     private var usersListener: ListenerRegistration!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         getAcceptor(order: order)
         setUpUI(order: order)
     }
@@ -27,8 +33,20 @@ class MyOrderDetailsViewController: PublishedOrderViewController {
         fuelLabel.text = order.fuelType + " (" + order.quality + ")"
         totalCostLabel.text = String(order.totalCost.rounded(.up)) + "$"
         deliveryTimeLabel.text = order.deliveryDate
-        statusLabel.text = order.status
-        configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))
+        
+        if order.status == ACCEPTED {
+            acceptedView.backgroundColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            acceptedLabel.textColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            lineView.backgroundColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+        }
+        if order.status == DELIVERED {
+            acceptedView.backgroundColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            acceptedLabel.textColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            deliveredView.backgroundColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            deliveredLabel.textColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            lineView.backgroundColor = #colorLiteral(red: 0.3450980392, green: 0.7058823529, blue: 0.6823529412, alpha: 1)
+            qrButton.isHidden = true
+        }
     }
     
     func getAcceptor(order: Order) {

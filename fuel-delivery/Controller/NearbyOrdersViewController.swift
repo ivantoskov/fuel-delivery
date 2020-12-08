@@ -24,11 +24,10 @@ class NearbyOrdersViewController: BaseOrderViewController {
                 debugPrint("Error fetching docs: \(err)")
             } else {
                 self.orders.removeAll()
-                self.orders = Order.parseData(snapshot: snapshot)
-                var allOrders = self.orders
-                for i in 0..<allOrders.count  {
-                    if (allOrders[i].userId == Auth.auth().currentUser!.uid) {
-                        self.orders.remove(at: i)
+                let allOrders = Order.parseData(snapshot: snapshot)
+                for order in allOrders {
+                    if (order.userId != Auth.auth().currentUser!.uid) {
+                        self.orders.append(order)
                     }
                 }
                 self.tableView.reloadData()
