@@ -18,9 +18,7 @@ class ProfileViewController: UIViewController {
     private var usersCollectionRef: CollectionReference!
     private var usersListener: ListenerRegistration!
     private var handle: AuthStateDidChangeListenerHandle?
-    
-    var userLocation: CLLocation!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         usersCollectionRef = Firestore.firestore().collection(USERS_REF)
@@ -67,13 +65,4 @@ class ProfileViewController: UIViewController {
         alertView.showWarning("Sign out?", subTitle: "", closeButtonTitle: "Cancel" , timeout: nil, colorStyle: SCLAlertViewStyle.warning.defaultColorInt, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == TO_TAKEN_ORDERS {
-            if let takenOrdersViewController = segue.destination as? TakenOrdersViewController {
-                takenOrdersViewController.userLocation = self.userLocation
-            }
-        }
-    }
-    
 }

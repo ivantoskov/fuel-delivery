@@ -30,7 +30,6 @@ class NewOrderViewController: UIViewController {
     
     private var deliveryTime = ""
     
-    var userLocation: CLLocation!
     var userAddress = ""
     var quantity = 0
     var totalPrice: Float = 0.0
@@ -159,15 +158,15 @@ class NewOrderViewController: UIViewController {
     
     func sendOrder() {
         // 3 symbols are equal to a radius of ±78km
-        let hash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 3)
+        let hash = Geohash.encode(latitude: Location.sharedInstance.latitude, longitude: Location.sharedInstance.longitude, length: 3)
         Firestore.firestore().collection(ORDERS_REF).addDocument(data: [
             FUEL_TYPE: selectedFuel,
             FUEL_QUALITY: selectedType(fuel: selectedFuel),
             DATE_ORDERED: formatDate(date: Date()),
             DISPLAY_NAME: Auth.auth().currentUser?.displayName ?? "",
             USER_ID: Auth.auth().currentUser?.uid ?? "",
-            LATITUDE: userLocation.coordinate.latitude,
-            LONGITUDE: userLocation.coordinate.longitude,
+            LATITUDE: Location.sharedInstance.latitude ?? 0.0,
+            LONGITUDE: Location.sharedInstance.longitude ?? 0.0,
             ADDRESS: userAddress,
             DELIVERY_TIME: deliveryTime,
             QUANTITY: quantity,

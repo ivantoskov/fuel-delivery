@@ -10,11 +10,9 @@ import MapKit
 import Firebase
 
 class NearbyOrdersViewController: BaseOrderViewController {
-    
-    var userLocation: CLLocation!
-        
+            
     override func setListener() {
-        let userHash = Geohash.encode(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, length: 3)
+        let userHash = Geohash.encode(latitude: Location.sharedInstance.latitude, longitude: Location.sharedInstance.longitude, length: 3)
         ordersListener = ordersCollectionRef
             .whereField(STATUS, isEqualTo: ORDERED)
             .whereField(GEO_HASH, isEqualTo: userHash)
@@ -41,7 +39,7 @@ class NearbyOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forOrder: orders[indexPath.row], userLocation: userLocation)
+            cell.configureCell(forOrder: orders[indexPath.row], userLocation: CLLocation(latitude: Location.sharedInstance.latitude, longitude: Location.sharedInstance.longitude))
             return cell
         } else {
             return UITableViewCell()
@@ -55,7 +53,6 @@ class NearbyOrdersViewController: BaseOrderViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_PUBLISHED_ORDER {
             if let publishedOrderViewController = segue.destination as? PublishedOrderViewController {
-                publishedOrderViewController.userLocation = self.userLocation
                 publishedOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
                 tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             }

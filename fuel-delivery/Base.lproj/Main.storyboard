@@ -1299,7 +1299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbi-8s-V86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-793" y="88"/>
+            <point key="canvasLocation" x="839" y="-1406"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="CIl-pV-EMa">
@@ -1527,7 +1527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUX-lZ-85e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1557" y="88"/>
+            <point key="canvasLocation" x="34" y="-1406"/>
         </scene>
         <!--Taken Orders View Controller-->
         <scene sceneID="1FW-CE-dyH">

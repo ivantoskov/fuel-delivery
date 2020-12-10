@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7903CBA42582851F002418C3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7903CBA32582851F002418C3 /* Location.swift */; };
 		790720962573C6B2007626D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720952573C6B2007626D3 /* AppDelegate.swift */; };
 		790720982573C6B2007626D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720972573C6B2007626D3 /* SceneDelegate.swift */; };
 		7907209A2573C6B2007626D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790720992573C6B2007626D3 /* MainViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		4FB56270E047D96EC9473CA9 /* Pods-fuel-delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fuel-delivery.release.xcconfig"; path = "Target Support Files/Pods-fuel-delivery/Pods-fuel-delivery.release.xcconfig"; sourceTree = "<group>"; };
+		7903CBA32582851F002418C3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		790720922573C6B2007626D3 /* fuel-delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fuel-delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		790720952573C6B2007626D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		790720972573C6B2007626D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7903CBA22582850F002418C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7903CBA32582851F002418C3 /* Location.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		790720892573C6B2007626D3 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		790720942573C6B2007626D3 /* fuel-delivery */ = {
 			isa = PBXGroup;
 			children = (
+				7903CBA22582850F002418C3 /* Services */,
 				7992FF3D257A8541009A6DDC /* Extensions */,
 				7907210C25743F7C007626D3 /* Utilities */,
 				7907210A25743F00007626D3 /* Enums */,
@@ -361,6 +372,7 @@
 			files = (
 				7914CB8B257BBC3200FD7367 /* MyOrderDetailsViewController.swift in Sources */,
 				7992FF3F257A855C009A6DDC /* MKMapViewDelegateExtension.swift in Sources */,
+				7903CBA42582851F002418C3 /* Location.swift in Sources */,
 				795F0B0725755B3000065B8B /* CircleView.swift in Sources */,
 				795F0AFE2574F8D400065B8B /* EngineOilType.swift in Sources */,
 				792FBB7A2576981B00367C5E /* ProfileViewController.swift in Sources */,

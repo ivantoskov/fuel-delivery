@@ -65,6 +65,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations[0] as CLLocation
+        Location.sharedInstance.latitude = userLocation.coordinate.latitude
+        Location.sharedInstance.longitude = userLocation.coordinate.longitude
         getAddress(fromLocation: userLocation) { (address) in
             self.locationLabel.text = address
         }
@@ -83,20 +85,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == TO_NEW_ORDER {
             if let newOrderViewController = segue.destination as? NewOrderViewController {
-                newOrderViewController.userLocation = self.userLocation
                 newOrderViewController.userAddress = self.locationLabel.text!
-            }
-        }
-        
-        if segue.identifier == TO_NEARBY_ORDERS {
-            if let nearbyOrdersViewController = segue.destination as? NearbyOrdersViewController {
-                nearbyOrdersViewController.userLocation = self.userLocation
-            }
-        }
-        
-        if segue.identifier == TO_PROFILE {
-            if let profileViewController = segue.destination as? ProfileViewController {
-                profileViewController.userLocation = self.userLocation
             }
         }
     }

@@ -23,12 +23,11 @@ class PublishedOrderViewController: UIViewController, MKMapViewDelegate  {
     @IBOutlet weak var takeOrderButton: UIButton!
     
     var order: Order!
-    var userLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI(order: order)
-        getDistance(userLocation: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), order: order) { (distance) in
+        getDistance(userLocation: CLLocation(latitude: Location.sharedInstance.latitude, longitude: Location.sharedInstance.longitude), order: order) { (distance) in
             self.distanceLabel.text = String(format: "%.1f", distance) + "km"
         }
         configureOrderMap(mapView: mapView, location: CLLocation(latitude: order.latitude, longitude: order.longitude))

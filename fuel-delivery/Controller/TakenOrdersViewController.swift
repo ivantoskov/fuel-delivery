@@ -11,8 +11,6 @@ import MapKit
 
 class TakenOrdersViewController: BaseOrderViewController {
     
-    var userLocation: CLLocation! // ?
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,7 +35,7 @@ class TakenOrdersViewController: BaseOrderViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL, for: indexPath) as? OrderCell {
-            cell.configureCell(forOrder: orders[indexPath.row], userLocation: userLocation)
+            cell.configureCell(forOrder: orders[indexPath.row], userLocation: CLLocation(latitude: Location.sharedInstance.latitude, longitude: Location.sharedInstance.longitude))
             return cell
         } else {
             return UITableViewCell()
@@ -52,7 +50,6 @@ class TakenOrdersViewController: BaseOrderViewController {
         if segue.identifier == TO_TAKEN_ORDER {
             if let takenOrderViewController = segue.destination as? TakenOrderViewController {
                 takenOrderViewController.order = orders[(tableView.indexPathForSelectedRow?.row)!]
-                takenOrderViewController.userLocation = self.userLocation
                 tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             }
         }

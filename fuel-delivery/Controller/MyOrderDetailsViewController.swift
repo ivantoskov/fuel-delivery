@@ -63,7 +63,6 @@ class MyOrderDetailsViewController: PublishedOrderViewController {
         } else {
             self.acceptedByLabel.text = "Nobody"
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,6 +72,4 @@ class MyOrderDetailsViewController: PublishedOrderViewController {
             }
         }
     }
-    
-    
 }
