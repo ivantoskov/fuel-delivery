@@ -9,11 +9,13 @@ import UIKit
 import Firebase
 import MapKit
 import SCLAlertView
+import Cosmos
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     private var usersCollectionRef: CollectionReference!
     private var usersListener: ListenerRegistration!
@@ -34,6 +36,7 @@ class ProfileViewController: UIViewController {
                 let user = User.parseData(snapshot: snapshot)
                 self.nameLabel.text = user.displayName
                 self.emailLabel.text = user.email
+                self.cosmosView.rating = user.overallRating
                 
             }
         })

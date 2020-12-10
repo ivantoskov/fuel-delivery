@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 import SCLAlertView
 import Firebase
+import Cosmos
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
@@ -16,9 +17,16 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var order: Order!
-
+    
+    private var userListener: ListenerRegistration!
+    private var overallRating: Double!
+    private var totalRating: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.getAcceptorDetails(order: self.order)
+        
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
@@ -54,6 +62,19 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             previewLayer.videoGravity = .resizeAspectFill
             view.layer.addSublayer(previewLayer)
             captureSession.startRunning()
+    }
+    
+    func getAcceptorDetails(order: Order) {
+        let userId = order.acceptedBy!
+            userListener = Firestore.firestore().collection(USERS_REF).document(userId).addSnapshotListener({ (snapshot, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                } else {
+                    let user = User.parseData(snapshot: snapshot)
+                    self.overallRating = user.overallRating
+                    self.totalRating = user.totalRating
+                }
+            })
     }
     
     func failed() {
@@ -93,12 +114,32 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
 
     func found(code: String) {
         
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+            showCloseButton: true
+        )
+
+        let alert = SCLAlertView(appearance: appearance)
+        let subview = UIView(frame: CGRect(x: 0,y: 0,width: 216,height: 70))
+
+        let cosmosView = CosmosView()
+        cosmosView.settings.updateOnTouch = true
+        cosmosView.settings.fillMode = .full
+        cosmosView.settings.starSize = 40
+
+        subview.addSubview(cosmosView)
+        
+        alert.customSubview = subview
+        
         let alertView = SCLAlertView()
         if code == self.order.documentId && self.order.status != DELIVERED {
-            alertView.addButton("Confirm") {
+            alert.addButton("Confirm") {
                 self.markOrderAsDelivered()
+                self.rateUser(cosmosView: cosmosView)
             }
-            alertView.showSuccess("Confirm order", subTitle: "Mark order as delivered?", closeButtonTitle: "Cancel")
+            alert.showSuccess("Mark order as delivered?", subTitle: "Rate delivery")
         } else {
             alertView.showError("Error", subTitle: "Invalid order", closeButtonTitle: "Okay")
         }
@@ -121,6 +162,26 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                     debugPrint("Unable to update data: \(error.localizedDescription)")
                 } else {
                     self.dismiss(animated: true, completion: nil)
+                }
+            }
+    }
+    
+    func rateUser(cosmosView: CosmosView) {
+        
+        let total = (self.overallRating * self.totalRating) + cosmosView.rating
+        let up = totalRating + 1
+        let newRating = total / up
+
+        Firestore.firestore().collection(USERS_REF).document(self.order.acceptedBy)
+            .updateData([
+                OVERALL_RATING: newRating,
+                TOTAL_RATING: totalRating + cosmosView.rating
+            ])
+            { (error) in
+                if let error = error {
+                    debugPrint("Unable to update data: \(error.localizedDescription)")
+                } else {
+                    print("success")
                 }
             }
     }

@@ -46,7 +46,10 @@ class RegisterViewController: UIViewController {
             Firestore.firestore().collection(USERS_REF).document(userId).setData([
                 DISPLAY_NAME: "\(firstName) \(lastName)",
                 EMAIL: email,
-                DATE_CREATED: FieldValue.serverTimestamp()
+                DATE_CREATED: FieldValue.serverTimestamp(),
+                OVERALL_RATING: 1.0,
+                TOTAL_RATING: 1.0,
+                NUMBER_OF_RATES: 0
                 ], completion: { (error) in
                     if let error = error {
                         self.showAlert(error: error.localizedDescription)

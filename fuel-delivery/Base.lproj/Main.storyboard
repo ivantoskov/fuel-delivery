@@ -42,8 +42,8 @@
                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgI-kg-Ouh" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="399" width="345" height="60"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgI-kg-Ouh" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
+                                                        <rect key="frame" x="15" y="377" width="345" height="60"/>
                                                         <color key="backgroundColor" red="0.34509803919999998" green="0.70588235290000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="dFo-B0-t0k"/>
@@ -85,8 +85,8 @@
                                                             <action selector="closePressed:" destination="fIt-6d-hjQ" eventType="touchUpInside" id="oSO-XG-Z6a"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36f-dJ-nsv" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="535" width="345" height="60"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36f-dJ-nsv" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="513" width="345" height="60"/>
                                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="IUg-6B-95s"/>
@@ -99,31 +99,8 @@
                                                             <action selector="signOutPressed:" destination="fIt-6d-hjQ" eventType="touchUpInside" id="Hif-4G-im7"/>
                                                         </connections>
                                                     </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-la-ZGZ">
-                                                        <rect key="frame" x="75" y="339" width="225" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow-star" translatesAutoresizingMaskIntoConstraints="NO" id="mub-EL-96t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow-star" translatesAutoresizingMaskIntoConstraints="NO" id="R31-QO-3F0">
-                                                                <rect key="frame" x="45" y="0.0" width="45" height="30"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow-star" translatesAutoresizingMaskIntoConstraints="NO" id="HgT-3S-26P">
-                                                                <rect key="frame" x="90" y="0.0" width="45" height="30"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow-star" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-f2-KUm">
-                                                                <rect key="frame" x="135" y="0.0" width="45" height="30"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-star" translatesAutoresizingMaskIntoConstraints="NO" id="YS5-ie-Kqi">
-                                                                <rect key="frame" x="180" y="0.0" width="45" height="30"/>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="DmM-8O-VfN"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Og-20-CUD" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="467" width="345" height="60"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Og-20-CUD" customClass="RoundedButton" customModule="fuel_delivery" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="445" width="345" height="60"/>
                                                         <color key="backgroundColor" red="0.34509803919999998" green="0.70588235290000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="2T7-Hc-oJI"/>
@@ -136,6 +113,22 @@
                                                             <segue destination="OEn-Qg-y7b" kind="show" identifier="toTakenOrders" id="MGA-aS-awq"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xa-kf-Mp7" customClass="CosmosView" customModule="Cosmos">
+                                                        <rect key="frame" x="50" y="332" width="275" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                                <real key="value" value="30"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -144,20 +137,19 @@
                                                     <constraint firstItem="DaW-Ex-0OX" firstAttribute="centerX" secondItem="ioE-dx-sc4" secondAttribute="centerX" id="970-ZP-8Sr"/>
                                                     <constraint firstItem="BA7-8W-0MY" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" id="9I0-P5-XkR"/>
                                                     <constraint firstAttribute="trailing" secondItem="36f-dJ-nsv" secondAttribute="trailing" constant="14" id="B9q-51-7yT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HbP-la-ZGZ" secondAttribute="trailing" constant="75" id="EQe-GK-DWn"/>
                                                     <constraint firstAttribute="trailing" secondItem="6Og-20-CUD" secondAttribute="trailing" constant="14" id="EmH-WS-IDP"/>
+                                                    <constraint firstItem="FgI-kg-Ouh" firstAttribute="top" secondItem="1xa-kf-Mp7" secondAttribute="bottom" constant="15" id="ExR-4g-6mm"/>
                                                     <constraint firstItem="36f-dJ-nsv" firstAttribute="top" secondItem="6Og-20-CUD" secondAttribute="bottom" constant="8" id="IN3-Ay-EmZ"/>
-                                                    <constraint firstItem="FgI-kg-Ouh" firstAttribute="top" secondItem="HbP-la-ZGZ" secondAttribute="bottom" constant="30" id="Iuf-1v-8PB"/>
                                                     <constraint firstItem="0oF-MQ-ANo" firstAttribute="top" secondItem="DaW-Ex-0OX" secondAttribute="bottom" constant="15" id="Ja9-Vw-kDN"/>
                                                     <constraint firstAttribute="trailing" secondItem="BA7-8W-0MY" secondAttribute="trailing" id="KPa-jN-XeU"/>
                                                     <constraint firstItem="0oF-MQ-ANo" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" id="OYQ-8w-QcI"/>
                                                     <constraint firstItem="6Og-20-CUD" firstAttribute="top" secondItem="FgI-kg-Ouh" secondAttribute="bottom" constant="8" id="b5S-vV-sxr"/>
                                                     <constraint firstItem="6Og-20-CUD" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" constant="16" id="e2q-6y-Hy4"/>
                                                     <constraint firstItem="DaW-Ex-0OX" firstAttribute="top" secondItem="ioE-dx-sc4" secondAttribute="top" constant="100" id="fPt-fu-uEA"/>
+                                                    <constraint firstItem="1xa-kf-Mp7" firstAttribute="centerX" secondItem="ioE-dx-sc4" secondAttribute="centerX" id="hNM-jl-w3C"/>
                                                     <constraint firstAttribute="height" constant="650" id="oMb-is-YO1"/>
                                                     <constraint firstItem="BA7-8W-0MY" firstAttribute="top" secondItem="0oF-MQ-ANo" secondAttribute="bottom" constant="8" id="ohH-06-kY2"/>
-                                                    <constraint firstItem="HbP-la-ZGZ" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" constant="75" id="sLg-I6-DBL"/>
-                                                    <constraint firstItem="HbP-la-ZGZ" firstAttribute="top" secondItem="BA7-8W-0MY" secondAttribute="bottom" constant="15" id="t3z-UX-hg8"/>
+                                                    <constraint firstItem="1xa-kf-Mp7" firstAttribute="top" secondItem="BA7-8W-0MY" secondAttribute="bottom" constant="8" id="thf-jW-4Vo"/>
                                                     <constraint firstItem="FgI-kg-Ouh" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" constant="15" id="wxQ-dk-NSg"/>
                                                     <constraint firstItem="36f-dJ-nsv" firstAttribute="leading" secondItem="ioE-dx-sc4" secondAttribute="leading" constant="16" id="zWy-Kl-NxJ"/>
                                                 </constraints>
@@ -191,6 +183,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cEm-YI-Zce"/>
                     <connections>
+                        <outlet property="cosmosView" destination="1xa-kf-Mp7" id="6qr-wm-Z9e"/>
                         <outlet property="emailLabel" destination="BA7-8W-0MY" id="YD7-09-Mzr"/>
                         <outlet property="nameLabel" destination="0oF-MQ-ANo" id="kHk-Sf-sox"/>
                     </connections>
@@ -2378,8 +2371,6 @@
         <image name="gas" width="512" height="512"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="profile" width="1236" height="1600"/>
-        <image name="white-star" width="512" height="512"/>
-        <image name="yellow-star" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

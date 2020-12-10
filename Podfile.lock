@@ -10,6 +10,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - Cosmos (23.0.0)
   - FBSDKCoreKit (7.1.1):
     - FBSDKCoreKit/Basics (= 7.1.1)
     - FBSDKCoreKit/Core (= 7.1.1)
@@ -198,6 +199,7 @@ PODS:
   - SDWebImage/Core (5.10.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 23.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -211,6 +213,7 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - BoringSSL-GRPC
+    - Cosmos
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -245,6 +248,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
   FBSDKLoginKit: 1a61d79e2b25e2fc0d03dccab1e34b38bbdf2546
   Firebase: da031bc7012374e3bed17a6731b89327b29863b9
@@ -276,6 +280,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: 46f4f086d25b4db6c06dca5c6dd7773b9e4c2cd0
+PODFILE CHECKSUM: 6d9b52fa571cac47dabe8e32ac3acf819590b3bc
 
 COCOAPODS: 1.9.3

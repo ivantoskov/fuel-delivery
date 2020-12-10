@@ -16,5 +16,6 @@ target 'fuel-delivery' do
   pod 'IQKeyboardManagerSwift'
   pod 'SCLAlertView'
   pod "QRCode"
+  pod 'Cosmos', '~> 23.0'
   
 end
